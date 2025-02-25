@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LMS Menu Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div>
+        <h2>LMS Menu List</h2>
+
+        <div class="menubox">
+        <!-- Link to user.html -->
+        <a th:href="@{/user}"><button>User Menu</button></a> &nbsp;
+            <!-- Link to bookinfo.html -->
+            <a th:href="@{/bookinfo}"><button>BookInfo Menu</button></a> &nbsp;
+            <!-- Link to book.html -->
+            <a th:href="@{/book}"><button>Book Menu</button></a> &nbsp;
+            <!-- Link to transaction.html -->
+            <a th:href="@{/transaction}"><button>Borrow/Return Menu</button></a>
+        </div>
+        <div class="menubox" th:if="${userType == 'A'}">
+            <!-- Link to reportinfo.html -->
+            <a th:href="@{/reportinfo}"><button>ReportInfo Menu</button></a> &nbsp;
+            <!-- Link to report.html -->
+            <a th:href="@{/report}"><button>Report Menu</button></a>
+        </div>
+    </div><br>
+</body>
+</html>

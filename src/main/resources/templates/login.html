@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+<body style="background-image: url('../img/librarybg.png'); background-repeat: no-repeat;">
+    <SCRIPT src="../js/header1.js"></SCRIPT>
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <label for="userid">UserId:</label>
+        <input type="text" id="userid" name="userid" th:value="${userId}" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>  <button type="submit">Login</button> </input>
+        <br>
+        <div th:if="!${#strings.isEmpty(error)}">
+            <img style="vertical-align: middle" src="../img/errorIcon.png" /><span id="hdnLoginError" style='color:red' th:text="${error}"></span>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LMS Report Menu Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div th:if="${userType == 'A'}">
+        <h2>Report Menu</h2>
+            <a th:href="@{/reporta}"><button>Add Report</button></a> &nbsp;
+            <a th:href="@{/reportr}"><button>Search Report(s)</button></a>
+    </div>
+    <div th:unless="${userType == 'A'}" style="color:red">
+        <script>document.write(accessDeniedMsg);</script>
+    </div>
+    <br><br><br><br><hr><br>
+    <div>
+        <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>

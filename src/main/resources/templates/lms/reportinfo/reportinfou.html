@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update ReportInfo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <SCRIPT src="../reportinfo/js/reportinfou.js"></SCRIPT>
+    <SCRIPT src="../js/main.js"></SCRIPT>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div th:if="${userType == 'A'}">
+        <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Search ReportInfo To Update</h3>
+        <table>
+            <tr><td>ReportInfo Id <label style='color:red'>*</label><td><input type="text" id="txtReportInfoId"></input>
+        </table>
+        <br><button onclick = "fnSearchReportInfo();">Search ReportInfo</button> <button onclick = "fnResetSrch();">Reset</button>
+    </div>
+    <div th:unless="${userType == 'A'}" style="color:red">
+        <script>document.write(accessDeniedMsg);</script>
+    </div>
+  
+    <div id="divUpdateReportInfo"></div>
+    <div id="divStatus" style="color:red"></div>
+
+    <br><hr><br>
+    <div>
+        <a th:href="@{/reportinfo}"><button>ReportInfo Menu</button></a>  <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>
