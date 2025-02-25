@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Transaction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <SCRIPT src="../transaction/js/transactionr.js"></SCRIPT>
+    <SCRIPT src="../js/main.js"></SCRIPT>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div th:if="${userType != 'M'}">
+         <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Transaction Search Criteria</h3>
+         <table>
+             <tr><td>Transaction Id <label style='color:red'>*</label><td><input type="text" id="txtTransactionId"></input><td>OR<td>User Id <label style='color:red'>*</label><td><input type="text" id="txtUserId"></input>
+                 <td colspan =2 style="text-align:center;">OR<td>Book Id <label style='color:red'>*</label><td><input type="text" id="txtBookId"></input>
+             <tr><td colspan =5><td>State &nbsp;
+                 <select id='selState'>";
+                     <option value='O'>Open</option>
+                     <option value='A'>All</option>
+                 </select></tr>
+             <tr><td><td><button onclick = "fnSearchTransaction();">Search Transaction(s)</button> <button onclick = "fnReset();">Reset</button>
+         </table>
+     </div>
+    <div th:unless="${userType != 'M'}" style="color:red">
+        <script>document.write(accessDeniedMsg);</script>
+    </div>
+     <div id="divListTransaction"></div>
+     <div id="divDtlsTransaction"></div>
+
+     <br><hr><br>
+    <div>
+        <a th:href="@{/transaction}"><button>Transaction Menu</button></a>  <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>

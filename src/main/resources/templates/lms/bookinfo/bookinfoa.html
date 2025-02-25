@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add BookInfo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <SCRIPT src="../bookinfo/js/bookinfoa.js"></SCRIPT>
+    <SCRIPT src="../js/main.js"></SCRIPT>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div th:if="${userType != 'M'}">
+        <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Add BookInfo</h3>
+        <table>
+            <tr><td>Title <label style='color:red'>*</label><td><input type="text" id="txtTitle" size="40"></input></tr>
+            <tr><td>Author <label style='color:red'>*</label><td><input type="text" id="txtAuthor" size="40"></input></tr>
+            <tr><td>Genre <label style='color:red'>*</label><td><input type="text" id="txtGenre" size="40"></input></tr>
+            <tr><td>Category <label style='color:red'>*</label><td><input type="text" id="txtCategory" size="40"></input></tr>
+            <tr><td>ISBN <label style='color:red'>*</label><td><input type="text" id="txtIsbn" size="40"></input></tr>
+            <tr><td>Publisher <label style='color:red'>*</label><td><input type="text" id="txtPublisher" size="40"></input>
+            <tr><td>Price <label style='color:red'>*</label><td><input type="text" id="txtPrice" maxlength="6" size="5"></input></tr>
+        </table>
+        <br><button id="btnAddBookInfo" onclick="fnAddBookInfo();">Add Book Info</button> &nbsp; <button onclick="fnReset();">Reset</button>
+        <button id="btnAddAnotherBookInfo" onclick="fnAddAnotherBookInfo();" class="dbtn">Add Another BookInfo</button>
+    </div>
+    <div th:unless="${userType != 'M'}" style="color:red">
+        <script>document.write(accessDeniedMsg);</script>
+    </div>
+    <div id="divStatus" style="color:red"></div>
+
+    <br><hr><br>
+    <div>
+        <a th:href="@{/bookinfo}"><button>BookInfo Menu</button></a>  <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>

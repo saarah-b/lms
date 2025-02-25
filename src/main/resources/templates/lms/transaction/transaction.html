@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LMS Transaction Menu Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <h2>Transaction (Borrow/Return) Menu</h2>
+    <div th:if="${userType != 'M'}" >
+        <a th:href="@{/transactiona}"><button>Add Transaction</button></a> &nbsp;
+        <a th:href="@{/transactionr}"><button>Search Transaction(s)</button></a> &nbsp;
+        <a th:href="@{/transactionu}"><button>Update Transaction</button></a>
+    </div>
+    <div th:unless="${userType != 'M'}" >
+        <a th:href="@{/transactionrm}"><button>Search Self Transaction(s)</button></a> &nbsp;
+        <br>
+    </div>
+    <br><br><br><br><hr><br>
+    <div>
+        <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>
