@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Member User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <SCRIPT src="../user/js/userum.js"></SCRIPT>
+    <SCRIPT src="../js/main.js"></SCRIPT>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Search My Details</h3>
+    <div id="divSrchUser" style="text-align: center;">
+        <h1>My User Id is <span id="txtUserId" th:text="${userId}"></span></h1>
+        <br><button id='btnSearchUser' onclick = "fnSearchUser();">Search My Details</button>
+    </div>
+  
+    <div id="divUpdateUser"></div>
+    <div id="divStatus" style="color:red"></div>
+
+    <br><hr><br>
+    <div>
+        <a th:href="@{/user}"><button>User Menu</button></a>  <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <SCRIPT src="../report/js/reporta.js"></SCRIPT>
+    <SCRIPT src="../js/main.js"></SCRIPT>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div th:if="${userType == 'A'}">
+        <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Add Report</h3>
+        <table>
+            <tr><td>ReportInfo Id <label style='color:red'>*</label><td><input type="text" id="txtReportInfoId" size="40"></input></tr>
+        </table>
+        <br><button id="btnAddReport" onclick="fnAddReport();">Manually Generate Report</button> &nbsp; <button onclick="fnReset();">Reset</button>
+        &nbsp; <button id="btnAddAnotherReport" onclick="fnAddAnotherReport();" class='dbtn'>Add Another Report</button>
+    </div>
+    <div th:unless="${userType == 'A'}" style="color:red">
+        <script>document.write(accessDeniedMsg);</script>
+    </div>
+    <div id="divStatus" style="color:red"></div>
+
+    <br><hr><br>
+    <div>
+        <a th:href="@{/report}"><button>Report Menu</button></a>  <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>

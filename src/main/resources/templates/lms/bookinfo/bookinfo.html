@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LMS BookInfo Menu Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div>
+        <h2>BookInfo Menu</h2>
+        <div class="menubox" th:if="${userType != 'M'}">
+            <a th:href="@{/bookinfoa}"><button>Add BookInfo</button></a>
+        </div>
+        <div class="menubox" >
+            <a th:href="@{/bookinfor}"><button>Search BookInfo(s)</button></a>
+        </div>
+        <div class="menubox" th:if="${userType != 'M'}">
+            <a th:href="@{/bookinfou}"><button>Update BookInfo</button></a> &nbsp;
+            <a th:href="@{/bookinfod}"><button>Delete BookInfo</button></a>
+        </div>
+        <br>
+    </div>
+    <br><br><br><br><hr><br>
+    <div>
+        <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>

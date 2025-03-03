@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Transaction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <SCRIPT src="../transaction/js/transactionu.js"></SCRIPT>
+    <SCRIPT src="../js/main.js"></SCRIPT>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div th:if="${userType != 'M'}">
+        <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Search Transaction To Update</h3>
+        <table>
+            <tr><td>Book Id <label style='color:red'>*</label><td><input type="text" id="txtBookId"><!--</input> <td colspan=6>OR
+            <td>User Id<td><input type="text" id="txtUserId"></input>-->
+        </table>
+        <br><button onclick = "fnSearchTransaction();">Search Open Transaction</button> <button onclick = "fnResetSrch();">Reset</button>
+    </div>
+    <div th:unless="${userType != 'M'}" style="color:red">
+        <script>document.write(accessDeniedMsg);</script>
+    </div>
+  
+    <div id="divUpdateTransaction"></div>
+    <div id="divStatus" style="color:red"></div>
+
+    <br><hr><br>
+    <div>
+        <a th:href="@{/transaction}"><button>Transaction Menu</button></a>  <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>

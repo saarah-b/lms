@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete BookInfo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <SCRIPT src="../bookinfo/js/bookinfod.js"></SCRIPT>
+    <SCRIPT src="../js/main.js"></SCRIPT>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div id="divMainWindow">
+        <div th:if="${userType != 'M'}">
+            <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Search BookInfo To Delete</h3>
+            <table>
+                <tr><td>BookInfo Id <label style='color:red'>*</label><td><input type="text" id="txtBookInfoId"></input>
+            </table>
+            <br><button onclick = "fnSearchBookInfo();">Search Book Info</button>
+            <button onclick = "fnResetSrch();">Reset</button>
+        </div>
+        <div th:unless="${userType != 'M'}" style="color:red">
+            <script>document.write(accessDeniedMsg);</script>
+        </div>
+
+        <div id="divDeleteBookInfo"></div>
+        <div id="divStatus" style="color:red"></div>
+        <br><hr><br>
+        <div>
+            <a th:href="@{/bookinfo}"><button>BookInfo Menu</button></a>
+            <a th:href="@{/menu}"><button>Main Menu</button></a>
+        </div>
+    </div>
+    <div id="divModal" style="background-color:#cff5d0;display:none;height:380px;"></div>
+</body>
+</html>

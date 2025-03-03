@@ -1,0 +1,85 @@
+body {
+	FONT-FAMILY: "Arial"; 
+    font-size:14px;
+    color:black;
+	scrollbar-face-color: #1aaddf;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;	
+}
+/*
+tbody {
+    top: 0;
+    left: 0;
+    overflow-y: auto;    /* Trigger vertical scroll    *=//
+    overflow-x: hidden;
+}*/
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 12px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  /*width: 40%;*/
+}
+/* Active state (when the button is being clicked) */
+.button:active {
+}
+
+/* Disabled state */
+.button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.dbtn {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+tr {
+    vertical-align: top;
+	BORDER-LEFT: #000000 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid;
+}
+
+th {
+    text-align: left;
+    background-color: #ccc;
+}
+
+a:link { color: #000000; text-decoration: none; }
+a:visited { color: #00506e; text-decoration: none; }
+a:hover { color: #252D33; text-decoration: underline; }
+a:active { color: #00506e;}
+
+tr:has(.selectRow:checked) > td {
+	background-color: #cca;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    /*font-family: "Bernard MT Condensed"*/
+    font-family: "Verdana";
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.menubox {
+  float: left;
+  margin: 5px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+

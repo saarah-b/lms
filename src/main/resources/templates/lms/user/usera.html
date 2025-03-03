@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add  User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="../user/js/usera.js"></script>
+    <SCRIPT src="../js/main.js"></SCRIPT>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="icon" href="../img/lms.png">
+</head>
+
+<body>
+    <span style="display:none" id="hdnUserInfo" th:text="${userInfo}"></span>
+    <SCRIPT src="../js/header.js"></SCRIPT>
+    <div th:if="${userType != 'M'}">
+        <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Add User</h3>
+        <table>
+            <tr><td>First Name <label style='color:red'>*</label><td><input type="text" id="txtFirstName" size="40"></input></tr>
+            <tr><td>Middle Name<td><input type="text" id="txtMiddleName" size="40"></input></tr>
+            <tr><td>Last Name <label style='color:red'>*</label><td><input type="text" id="txtLastName" size="40"></input></tr>
+            <tr><td>Email <label style='color:red'>*</label><td><input type="text" id="txtEmail" size="40"></input></tr>
+            <tr><td>Mobile Number <label style='color:red'>*</label><td>(UK) +44 <input type="text" id="txtMobileNumber" maxlength="11" size="9"></input></tr>
+            <tr><td>Date of Birth <label style='color:red'>*</label><td>YYYY <input type="text" id="txtYear" maxlength="4" size="3"></input>
+                &nbsp;MM <input type="text" id="txtMonth" maxlength="2" size="1"></input>
+                &nbsp;DD <input type="text" id="txtDate" maxlength="2" size="1"></input></tr>
+            <tr><td>Type <label style='color:red'>*</label><td>
+                <select id='selType'>";
+                    <option value='A'>Admin</option>
+                    <option value='S'>Staff</option>
+                    <option value='M'>Member</option>
+                </select></tr>
+            <tr><td>Address ID <label style='color:red'>*</label><td>
+                <select id='selAddr'>";
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                </select></tr>
+        </table>
+        <br><button id="btnAddUser" onclick="fnAddUser();">Add User</button> &nbsp; <button onclick="fnReset();">Reset</button>
+        &nbsp; <button id="btnAddAnotherUser" onclick="fnAddAnotherUser();" class='dbtn'>Add Another User</button>
+    </div>
+    <div th:unless="${userType != 'M'}" style="color:red">
+        <script>document.write(accessDeniedMsg);</script>
+    </div>
+    <div id="divStatus" style="color:red"></div>
+    <br><hr><br>
+    <div>
+        <a th:href="@{/user}"><button>User Menu</button></a>  <a th:href="@{/menu}"><button>Main Menu</button></a>
+    </div>
+</body>
+</html>
