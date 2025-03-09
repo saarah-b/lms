@@ -9,7 +9,6 @@ It also clears any previous output text from any areas on the page
 */
 //async function fnDeleteBookInfo() {
 async function fnDoAction() {
-    fnCancel();
     let apiUrl = server + apiContext + glbDelBookInfoId; //document.getElementById('tdBookInfoId').innerText;
     //console.log("apiUrl = " + apiUrl);
 
@@ -41,7 +40,6 @@ function fnDisplayDeleteResponse(data) {
 
         resultDivStatus.innerHTML += strFault;
         resultDiv.innerHTML = "";
-
     } else { // valid when a record(s) exists
         let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;Delete BookInfo Status</h3>";
         // when delete is successful
@@ -52,6 +50,7 @@ function fnDisplayDeleteResponse(data) {
         document.getElementById("btnConfirm").className = "dbtn";
         document.getElementById("btnDeleteAnotherBookInfo").className = "";
     }
+    fnHideModal(); // hide confirmation and display main
 }
 
 /*
@@ -172,8 +171,9 @@ function validateSrch() {
     // Validation: Check if the value is a positive number
     if (!isPositiveNumber(bookInfoId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>BookInfo Id value can only be a positive number</td></tr>";
-        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + bookInfoId + "</font></td></tr></table>";
+        strFault += "<tr><th>Message</td><td>BookInfo Id value can only be a positive integer number</td></tr>";
+        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + bookInfoId;
+        strFault += "</font></td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;
     }

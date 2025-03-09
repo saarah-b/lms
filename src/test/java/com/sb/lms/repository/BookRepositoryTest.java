@@ -75,8 +75,44 @@ public class BookRepositoryTest {
     }
 
     @Test
-    @DisplayName("Test 3:Verify All Book of Book Retrieval Check")
+    @DisplayName("Test 2:Verify Total Book Counts By BookInfo Check")
+    @Order(2)
+    public void repTestFindTotalBookCountsByBookInfo() {
+        // Arrange
+        when(bookRepository.findTotalBookCountsByBookInfo(
+                book.getBookInfo().getBookInfoId())).thenReturn(book.getBookInfo().getTotalQuantity());
+
+        // Act
+        bookRepository.findTotalBookCountsByBookInfo(book.getBookInfo().getBookInfoId());
+
+        // Assert
+        Assertions.assertThat(book.getBookInfo().getTotalQuantity()).isEqualTo(2);
+
+        // Verify that save was called
+        verify(bookRepository, times(1)).findTotalBookCountsByBookInfo(book.getBookInfo().getBookInfoId());
+    }
+
+    @Test
+    @DisplayName("Test 3:Verify Available Book Counts By BookInfo Check")
     @Order(3)
+    public void repTestFindAvailableBookCountsByBookInfo() {
+        // Arrange
+        when(bookRepository.findAvailableBookCountsByBookInfo(
+                book.getBookInfo().getBookInfoId())).thenReturn(book.getBookInfo().getTotalQuantity());
+
+        // Act
+        bookRepository.findAvailableBookCountsByBookInfo(book.getBookInfo().getBookInfoId());
+
+        // Assert
+        Assertions.assertThat(book.getBookInfo().getTotalQuantity()).isEqualTo(2);
+
+        // Verify that save was called
+        verify(bookRepository, times(1)).findAvailableBookCountsByBookInfo(book.getBookInfo().getBookInfoId());
+    }
+
+    @Test
+    @DisplayName("Test 4:Verify All Book of Book Retrieval Check")
+    @Order(4)
     public void repTestGetAllBookOfBookInfo() {
         String title = "ede";
         List<Book> bookList = new ArrayList<>();
@@ -165,5 +201,33 @@ public class BookRepositoryTest {
         // Verify interactions with repositories
         verify(bookRepository, times(1)).deleteById(book.getBookId());
 
+    }
+
+    @Test
+    @DisplayName("Test 8:Verify All Available Book of Book Retrieval Check")
+    @Order(8)
+    public void repTestGetAvailableBooksByBookInfo() {
+        String title = "ede";
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(book);
+        Book book2 = Book.builder().bookId(1).shelfReference("Shelf2").location("Whitechapel")
+                .edition("2.14").available(false).bookInfo(bookInfo).build();
+
+        // Mock the behavior of the BookInfoRepository and BookRepository
+        Mockito.when(bookRepository.findAvailableBooksByBookInfo(bookInfo.getBookInfoId())).thenReturn(bookList);
+
+        List<Book> bookDBList = bookRepository.findAvailableBooksByBookInfo(bookInfo.getBookInfoId());
+        Book bookInsideList = bookDBList.get(0);
+
+        //Verify
+        Assertions.assertThat(bookDBList).isInstanceOf(ArrayList.class);
+        Assertions.assertThat(bookDBList).isNotInstanceOf(Map.class);
+        Assertions.assertThat(bookInsideList).isInstanceOf(Book.class);
+        Assertions.assertThat(bookInsideList).isNotInstanceOf(BookInfo.class);
+        Assertions.assertThat(bookInsideList.getFault()).isNull();
+        Assertions.assertThat(book.getShelfReference()).isEqualTo(bookDBList.get(0).getShelfReference());
+        Assertions.assertThat(book.getLocation()).isEqualTo(bookDBList.get(0).getLocation());
+        Assertions.assertThat(bookDBList.size()).isGreaterThan(0);
+        verify(bookRepository, times(1)).findAvailableBooksByBookInfo(bookInfo.getBookInfoId());
     }
 }

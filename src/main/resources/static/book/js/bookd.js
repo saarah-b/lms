@@ -7,7 +7,8 @@ var glbDelBookTable;
 This function gets the Book Id on the page and submits the information to the server as an API request.
 It also clears any previous output text from any areas on the page
 */
-async function fnDeleteBook() {
+//async function fnDeleteBook() {
+async function fnDoAction() {
     let apiUrl = server + apiContext + glbDelBookId; // document.getElementById('tdBookId').innerText;
     //console.log("apiUrl = " + apiUrl);
 
@@ -39,7 +40,6 @@ function fnDisplayDeleteResponse(data) {
 
         resultDivStatus.innerHTML += strFault;
         resultDiv.innerHTML = "";
-
     } else { // valid when a record(s) exists
         let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;Delete Book Status</h3>";
         // when delete is successful
@@ -50,6 +50,7 @@ function fnDisplayDeleteResponse(data) {
         document.getElementById("btnConfirm").className = "dbtn";
         document.getElementById("btnDeleteAnotherBook").className = "";
     }
+    fnHideModal();
 }
 
 /*
@@ -171,7 +172,7 @@ function validateSrch() {
     // Validation: Check if the value is a positive number
     if (!isPositiveNumber(bookId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>Book Id value can only be a positive number</td></tr>";
+        strFault += "<tr><th>Message</td><td>Book Id value can only be a positive integer number</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + bookId + "</font></td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;

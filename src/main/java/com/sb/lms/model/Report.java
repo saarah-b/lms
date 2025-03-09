@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
@@ -57,14 +58,21 @@ public class Report {
         if (reportId != null) {
             //log.info("reportId = " + reportId + ", toString = " + this.toString());
             String formattedDate = new SimpleDateFormat("yyyyMMdd").format(generatedDate);
-            String fileName = "src/main/resources/static/lms/report_files/";
-            downloadLink = reportInfo.getReportInfoId() + "_" + reportInfo.getName() + "_" + reportId + "_" + formattedDate + ".html";
-            FileWriter csvWriter = new FileWriter(fileName + downloadLink);
-            csvWriter.write(content);
-            csvWriter.close();
+            String fileNameBase = "src/main/resources/static/lms/report_files/";
+            downloadLink = reportInfo.getReportInfoId() + "_" + reportInfo.getName() + "_" +
+                    reportId + "_" + formattedDate + ".html";
+
+            this.writeToFile(fileNameBase + downloadLink);
+
             downloadLink = "../../lms/report_files/" + downloadLink;
             log.info("File Download link created for " + downloadLink);
         }
         log.info("Returning Report::onPrePersist. reportId = " + reportId);
+    }
+
+    private void writeToFile(String fileName) throws IOException {
+        FileWriter csvWriter = new FileWriter(fileName);
+        csvWriter.write(content);
+        csvWriter.close();
     }
 }

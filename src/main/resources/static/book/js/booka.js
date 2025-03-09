@@ -114,7 +114,7 @@ function validateAdd() {
     // Validation: Check if the value is a positive number
     if (!isPositiveNumber(bookInfoId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>Book Info Id value can only be a positive number</td></tr>";
+        strFault += "<tr><th>Message</td><td>Book Info Id value can only be a positive integer number</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + "</td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;

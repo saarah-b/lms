@@ -170,8 +170,9 @@ function validateSrch() {
     // Validation: Check if the value is a positive number
     if (bookInfoId && !isPositiveNumber(bookInfoId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>BookInfo Id value can only be a positive number</td></tr>";
-        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + bookInfoId + "</font></td></tr></table></div>";
+        strFault += "<tr><th>Message</td><td>BookInfo Id value can only be a positive integer number</td></tr>";
+        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + bookInfoId;
+        strFault += "</font></td></tr></table></div>";
         resultDivDtls.innerHTML = strFault;
         return false;
     }

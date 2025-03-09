@@ -12,9 +12,11 @@ let glbUserId = result.split("-")[1];
 let glbUserType = result.split("-")[2];
 document.getElementById('spnUserInfo').innerText = glbUserInfo + " (" + glbUserId + ")-["+ glbUserType + "]";
 
+// Roles of LMS
 let userRole ="";
 if (glbUserType == "A") userRole = "Admin"
 else if (glbUserType == "S") userRole = "Staff";
 else if (glbUserType == "M") userRole = "Member";
 
+// Access denied to pages as per authorisation rules
 var accessDeniedMsg = "Access to this page is denied for " + userRole + " Users";

@@ -144,7 +144,8 @@ function selClick(value, mode) {
     strDtl += "<tr><th>Returned<td>" + data.returned + "</table>";
 
     let strUser = "<h3>&nbsp;&nbsp;&#x25A0 &nbsp;User Details</h3>";
-    strUser += "<table><tr><th width=30%>Id<td>" + data.user.userId + "<tr><th>First Name <td>" + data.user.firstName + "<tr><th>Middle Name <td>" + data.user.middleName;
+    let middleName = data.user.middleName || "-";
+    strUser += "<table><tr><th width=30%>Id<td>" + data.user.userId + "<tr><th>First Name <td>" + data.user.firstName + "<tr><th>Middle Name <td>" + middleName;
     strUser += "<tr><th>Last Name <td>" + data.user.lastName + "<tr><th>Email <td>" + data.user.email + "<tr><th>Mobile Number <td>" + data.user.mobileNumber;
     strUser += "<tr><th>DOB <td>" + data.user.birth.slice(0,10) + "<tr><th>Type <td>" + data.user.type + "<tr><th>Last Login <td>" + data.user.lastLogin.slice(0,10) + "</table>";
 
@@ -162,7 +163,7 @@ function selClick(value, mode) {
     strBookInfo += "<tr><td>" + data.book.bookInfo.bookInfoId + "<td>" + data.book.bookInfo.title + "<td>" + data.book.bookInfo.author + "<td>" + data.book.bookInfo.genre + "<td>" + data.book.bookInfo.category;
     strBookInfo += "<td>" + data.book.bookInfo.isbn + "<td>" + data.book.bookInfo.publisher + "<td>" + data.book.bookInfo.price + "<td>" + data.book.bookInfo.totalQuantity + "</table>";
 
-    resultDivDtls.innerHTML += strDtl + strUser + strAddr + strBook + strBookInfo;
+    resultDivDtls.innerHTML = strDtl + strUser + strAddr + strBook + strBookInfo;
 }
 
 /*

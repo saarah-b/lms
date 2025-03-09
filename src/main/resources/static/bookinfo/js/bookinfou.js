@@ -164,7 +164,7 @@ function validateSrch() {
 
     // Validation: Check all mandatory values
     if (!bookInfoId) {
-        strFault += "<tr><th>Message</td><td>Mandatory Input information</td></tr>";
+        strFault += "<tr><th>Message</td><td>Mandatory Input information cannot be blank</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + bookInfoId + "</td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;
@@ -172,8 +172,9 @@ function validateSrch() {
     // Validation: Check if the value is a positive number
     if (!isPositiveNumber(bookInfoId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>BookInfo Id value can only be a positive number</td></tr>";
-        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + bookInfoId + "</font></td></tr></table>";
+        strFault += "<tr><th>Message</td><td>BookInfo Id value can only be a positive integer number</td></tr>";
+        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + bookInfoId;
+        strFault += "</font></td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;
     }

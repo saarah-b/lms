@@ -14,8 +14,8 @@ async function fnSearchTransaction(mode) {
     let apiUrl = server + apiContext;
 
     // check if all transactions need to be searched or only open ones
-    boolean allTransactions = (mode == 'all');
-    boolean openTransactions = (mode == 'open');
+    let allTransactions = (mode == 'all');
+    let openTransactions = (mode == 'open');
     if (allTransactions)
         apiUrl += 'all/user/' + document.getElementById('txtUserId').innerText;
     else if (openTransactions)
@@ -130,9 +130,10 @@ function selClick(value, mode) {
     strDtl += "<tr><th>Actual Returned Date <td>" + actualDate + "<tr><th>" + fineDesc + "<td>" + data.fine;
     strDtl += "<tr><th>Returned<td>" + data.returned + "</table>";
 
+    let middleName = data.user.middleName || "-";
     let strUser = "<h3>&nbsp;&nbsp;&#x25A0 &nbsp;User Details</h3>";
     strUser += "<table><tr><th width=30%>Id<td>" + data.user.userId + "<tr><th>First Name <td>" + data.user.firstName;
-    strUser += "<tr><th>Middle Name <td>" + data.user.middleName + "<tr><th>Last Name <td>" + data.user.lastName;
+    strUser += "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name <td>" + data.user.lastName;
     strUser += "<tr><th>Email <td>" + data.user.email + "<tr><th>Mobile Number <td>" + data.user.mobileNumber;
     strUser += "<tr><th>DOB <td>" + data.user.birth.slice(0,10) + "<tr><th>Type <td>" + data.user.type;
     strUser += "<tr><th>Last Login <td>" + data.user.lastLogin.slice(0,10) + "</table>";

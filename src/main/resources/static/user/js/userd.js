@@ -9,7 +9,6 @@ It also clears any previous output text from any areas on the page
 */
 //async function fnDeleteUser() {
 async function fnDoAction() {
-    fnCancel();
     let apiUrl = server + apiContext + glbDelUserId; //document.getElementById('tdUserId').innerText;
     //console.log("apiUrl = " + apiUrl);
 
@@ -41,7 +40,6 @@ function fnDisplayDeleteResponse(data) {
 
         resultDivStatus.innerHTML = strFault;
         resultDiv.innerHTML = "";
-
     } else { // valid when a record(s) exists
         let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;Delete User Status</h3>";
         // when delete is successful
@@ -52,6 +50,7 @@ function fnDisplayDeleteResponse(data) {
         document.getElementById("btnConfirm").className = "dbtn";
         document.getElementById("btnDeleteAnotherUser").className = "";
     }
+    fnHideModal(); // hide confirmation and display main
 }
 
 /*
@@ -108,11 +107,12 @@ function fnDisplayUserList(dataList) {
         let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;Delete User</h3>";
         let middleName = dataList.middleName || "-";
         if (dataList.length == undefined) { // when a record exists by ID
-            strDtl += "<table><tr><th width=30%>User Id<td id='tdUserId'>" + dataList.userId + "<tr><th>First Name <td>" + dataList.firstName;
-            strDtl += "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name <td>" + dataList.lastName;
-            strDtl += "<tr><th>Email <td>" + dataList.email +"</input><tr><th>Mobile Number <td>" + dataList.mobileNumber;
-            strDtl += "<tr><th>DOB <td>" + dataList.birth.slice(0,10) + "<tr><th>Type <td>" + dataList.type;
-            strDtl += "<tr><th>Last Login <td>" + dataList.lastLogin.slice(0,10) + "</table>";
+            strDtl += "<table><tr><th width=30%>User Id<td id='tdUserId'>" + dataList.userId + "<tr><th>First Name";
+            strDtl += "<td>" + dataList.firstName + "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name";
+            strDtl += "<td>" + dataList.lastName + "<tr><th>Email <td>" + dataList.email +"</input>";
+            strDtl += "<tr><th>Mobile Number <td>" + dataList.mobileNumber + "<tr><th>DOB <td>";
+            strDtl += dataList.birth.slice(0,10) + "<tr><th>Type <td>" + userTypeDescription(dataList.type);
+            strDtl += " [" + dataList.type+ "]" + "<tr><th>Last Login <td>" + dataList.lastLogin.slice(0,10) + "</table>";
 
             // Store the user details table to display it later for deletion confirmation
             glbDelUserTable = strDtl;

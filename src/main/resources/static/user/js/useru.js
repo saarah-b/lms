@@ -87,15 +87,20 @@ function fnDisplayUserList(dataList) {
 
         //console.log("dataList.length = " + dataList.length);
         if (dataList.length == undefined) { // when a record exists by ID
-            strDtl += "<table><tr><th>User Id<td id='tdUserId'>" + dataList.userId + "<tr><th>First Name <td>" + dataList.firstName;
-            strDtl += "<tr><th>Middle Name <td>" + dataList.middleName + "<tr><th>Last Name <td>" + dataList.lastName;
-            strDtl += "<tr><th>Email <label style='color:red'>*</label><td><input type='text' id='txtEmail' size='40' value='" + dataList.email +"'></input>";
-            strDtl += "<tr><th>Mobile Number <label style='color:red'>*</label><td>(UK) +44 <input type='text' id='txtMobileNumber'";
-            strDtl += " maxlength='11' size='9' value='" + dataList.mobileNumber + "'></input>";
-            strDtl += "<tr><th>DOB <td>" + dataList.birth.slice(0,10) + "<tr><th>Type <td>" + dataList.type;
-            strDtl += "<tr><th>Last Login <td>" + dataList.lastLogin.slice(0,10) + "</table>";
-            strDtl += "<br><button id='btnUpdateUser' onclick='fnUpdateUser();'>Update User</button> &nbsp; <button onclick='fnReset();'>Reset</button>	&nbsp;";
-            strDtl += "<button id='btnUpdateAnotherUser' onclick='fnUpdateAnotherUser();' class='dbtn'>Update Another User</button> ";
+            strDtl += "<table><tr><th>User Id<td id='tdUserId'>" + dataList.userId + "<tr><th>First Name <td>";
+
+            let middleName = dataList.middleName || "-";
+            strDtl += dataList.firstName + "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name <td>";
+            strDtl += dataList.lastName + "<tr><th>Email <label style='color:red'>*</label><td>";
+            strDtl += "<input type='text' id='txtEmail' size='40' value='" + dataList.email +"'></input>";
+            strDtl += "<tr><th>Mobile Number <label style='color:red'>*</label><td>(UK) +44 ";
+            strDtl += "<input type='text' id='txtMobileNumber' maxlength='11' size='9' value='" + dataList.mobileNumber;
+            strDtl += "'></input>" + "<tr><th>DOB <td>" + dataList.birth.slice(0,10) + "<tr><th>Type <td>";
+            strDtl += userTypeDescription(dataList.type) + " [" + dataList.type+ "]" + "<tr><th>Last Login <td>";
+            strDtl += dataList.lastLogin.slice(0,10) + "</table> <br><button id='btnUpdateUser' ";
+            strDtl += "onclick='fnUpdateUser();'>Update User</button> &nbsp; ";
+            strDtl += "<button onclick='fnReset();'>Reset</button>	&nbsp; <button id='btnUpdateAnotherUser'";
+            strDtl += "onclick='fnUpdateAnotherUser();' class='dbtn'>Update Another User</button> ";
         }
         resultDiv.innerHTML = strDtl;
     }

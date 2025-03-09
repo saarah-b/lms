@@ -93,7 +93,7 @@ function fnDisplayReportInfoList(dataList) {
             //console.log("34343434");
             strDtl += "<table><tr><td>ReportInfo Id<td id='tdReportInfoId'>" + dataList.reportInfoId;
             strDtl += "<tr><td>Name <td>" + dataList.name + "<tr><td>SQL Statement <td>" + dataList.sqlStatement;
-            strDtl += "<tr><td>Generation Time <label style='color:red'>*</label>";
+            strDtl += "<tr><td>Generation Time (HH:MM) <label style='color:red'>*</label>";
             strDtl += "<td><input type='text' id='txtGenTime' size='40' value='" + dataList.timeToGenerate +"'></input></table>";
 
             strDtl += "<br><button id='btnUpdateReportInfo' onclick='fnUpdateReportInfo();'>Update ReportInfo</button> &nbsp; <button onclick='fnReset();'>Reset</button>";
@@ -151,7 +151,7 @@ function validateSrch() {
 
     // Validation: Check all mandatory values
     if (!reportInfoId) {
-        strFault += "<tr><th>Message</td><td>Mandatory Input information</td></tr>";
+        strFault += "<tr><th>Message</td><td>Mandatory Input information cannot be blank</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + reportInfoId + "</td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;
@@ -159,8 +159,9 @@ function validateSrch() {
     // Validation: Check if the value is a positive number
     if (!isPositiveNumber(reportInfoId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>ReportInfo Id value can only be a positive number</td></tr>";
-        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + reportInfoId + "</font></td></tr></table>";
+        strFault += "<tr><th>Message</td><td>ReportInfo Id value can only be a positive integer number</td></tr>";
+        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + reportInfoId;
+        strFault += "</font></td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;
     }
@@ -175,8 +176,15 @@ function validateUpdate() {
     strFault += "<table><tr><th width=30%>Http</td><td>Precondition Failed</td></tr>";
     strFault += "<tr><th>Code</td><td>412</td></tr>";
 
+    // Validation: Check all mandatory values
+    if (!genTime) {
+        strFault += "<tr><th>Message</td><td>Mandatory Input information cannot be blank</td></tr>";
+        strFault += "<tr><th>Path</td><td>" + apiContext + "</td></tr></table>";
+        resultDivStatus.innerHTML = strFault;
+        return false;
+    }
     // Validation: Check if the genTime maps to real hours and minutes
-    if (genTime && !isValidReportTime(genTime)) {
+    if (!isValidReportTime(genTime)) {
         strFault += "<tr><th>Message</td><td>Report Time does not map to real hours and minutes</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + "</td></tr></table>";
         resultDivStatus.innerHTML = strFault;

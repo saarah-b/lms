@@ -1,5 +1,6 @@
 package com.sb.lms.repository;
 
+import com.sb.lms.model.Book;
 import com.sb.lms.model.Report;
 import com.sb.lms.model.ReportInfo;
 import com.sb.lms.service.ReportService;
@@ -84,7 +85,23 @@ public class ReportRepositoryTests {
 
     }
 
+    @Test
+    @DisplayName("Test 2:Verify Total Report Counts By ReportInfo Check")
+    @Order(2)
+    public void repTestFindTotalReportCountsByReportInfo() {
+        // Arrange
+        when(reportRepository.findTotalReportCountsByReportInfo(
+                report.getReportInfo().getReportInfoId())).thenReturn(5);
 
+        // Act
+        int count = reportRepository.findTotalReportCountsByReportInfo(report.getReportInfo().getReportInfoId());
+
+        // Assert
+        Assertions.assertThat(count).isEqualTo(5);
+
+        // Verify that findTotalReportCountsByReportInfo was called
+        verify(reportRepository, times(1)).findTotalReportCountsByReportInfo(report.getReportInfo().getReportInfoId());
+    }
 
     @Test
     @DisplayName("Test 3:Verify Report By Generated Date Retrieval Check")
@@ -99,7 +116,7 @@ public class ReportRepositoryTests {
 
         when(reportRepository.findReportsByGeneratedDate(date)).thenReturn(reportList);
 
-        List<Report> reportDBList = reportService.getReportsByGeneratedDate(date);
+        List<Report> reportDBList = reportRepository.findReportsByGeneratedDate(date);
         Report reportInsideList = reportDBList.get(0);
 
         //Verify
@@ -113,9 +130,8 @@ public class ReportRepositoryTests {
         Assertions.assertThat(report2.getDownloadLink()).isEqualTo(reportDBList.get(1).getDownloadLink());
         Assertions.assertThat(report2.getGeneratedDate()).isEqualTo(reportDBList.get(1).getGeneratedDate());
         Assertions.assertThat(reportDBList.size()).isGreaterThan(0);
+        verify(reportRepository, times(1)).findReportsByGeneratedDate(date);
     }
-
-
 
     @Test
     @DisplayName("Test 5:Verify Add Report For ReportInfo Check")

@@ -25,16 +25,6 @@ public interface ReportRepository extends JpaRepository<Report, Integer> {
     Integer findTotalReportCountsByReportInfo(Integer reportInfoId);
 
     /**
-     * Handles the DB call to get/retrieve all Reports by a reportInfoId.
-     * @param reportInfoId the reportInfoId of all the Reports to be retrieved
-     * @return a list of the requested Report entities
-     */
-    @Query(
-            value = "SELECT * FROM REPORT WHERE reportinfo_id =?1",
-            nativeQuery = true)
-    List<Report> findAllReportsByReportInfo(Integer reportInfoId);
-
-    /**
      * Handles the DB call to get/retrieve all Reports by its date of generation
      * @param generatedDate the date of report creation for all associated Reports to be retrieved
      * @return a list of the requested Report entities
@@ -44,4 +34,14 @@ public interface ReportRepository extends JpaRepository<Report, Integer> {
             nativeQuery = true)
     List<Report> findReportsByGeneratedDate(String generatedDate);
 
+    /**
+     * Handles the DB call to get/retrieve all Reports by a reportInfoId.
+     * @param reportInfoId the reportInfoId of all the Reports to be retrieved
+     * @return a list of the requested Report entities
+     * /
+    @Query(
+            value = "SELECT * FROM REPORT WHERE reportinfo_id =?1",
+            nativeQuery = true)
+    List<Report> findAllReportsByReportInfo(Integer reportInfoId);
+    */
 }

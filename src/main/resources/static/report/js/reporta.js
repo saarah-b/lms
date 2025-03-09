@@ -104,7 +104,7 @@ function validateAdd() {
     // Validation: Check if the value is an integer
     if (!isPositiveNumber(reportInfoId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>Report Info Id value can only be a positive number</td></tr>";
+        strFault += "<tr><th>Message</td><td>Report Info Id value can only be a positive integer number</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + "</td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;

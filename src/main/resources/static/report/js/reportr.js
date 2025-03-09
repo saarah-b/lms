@@ -172,8 +172,9 @@ function validateSrch() {
     // Validation: Check if the value is a positive number
     if (reportId && !isPositiveNumber(reportId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>Report Id value can only be a positive number</td></tr>";
-        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + reportId + "</font></td></tr></table></div>";
+        strFault += "<tr><th>Message</td><td>Report Id value can only be a positive integer number</td></tr>";
+        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + reportId;
+        strFault += "</font></td></tr></table></div>";
         resultDivDtls.innerHTML = strFault;
         return false;
     }
@@ -181,7 +182,8 @@ function validateSrch() {
     if (genDate && !isValidDate(genDate)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
         strFault += "<tr><th>Message</td><td>Date text value is not a real date</td></tr>";
-        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + reportId + "</font></td></tr></table></div>";
+        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + reportId;
+        strFault += "</font></td></tr></table></div>";
         resultDivDtls.innerHTML = strFault;
         return false;
     }

@@ -149,7 +149,7 @@ function validateSrch() {
 
     // Validation: Check all mandatory values
     if (!bookId) {
-        strFault += "<tr><th>Message</td><td>Mandatory Input information</td></tr>";
+        strFault += "<tr><th>Message</td><td>Mandatory Input information cannot be blank</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + bookId + "</td></tr></table>";
         resultDivStatus.innerHTML = strFault;
         return false;

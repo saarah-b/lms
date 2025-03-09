@@ -138,9 +138,9 @@ public class BookService {
         //log.info("bookInfoDB = " + bookInfoDB.getTitle() + " -- " + bookInfoDB.getAuthor());
 
         // Create Fault Object to give details on UI
-        if (bookInfoDB == null) {
+        if (bookInfoDB == null || bookInfoDB.getFault() != null) {
             LmsFault lmsFault = new LmsFault("Resource Not Found", "404",
-                    BOOK_INFO_NOT_FOUND,"/lms/v1/books");
+                    BOOK_INFO_NOT_FOUND,BOOKINFO_BASE_URL + book.getBookInfo().getBookInfoId());
             return Utils.createFaultyBook(lmsFault);
         }
         //log.info("Title = " + bookInfoDB.getTitle());
@@ -200,6 +200,7 @@ public class BookService {
 
         // Finds the existing Book by ID.
         Book book = this.getBookById(bookId);
+        log.info("book = " + book);
         //log.info("book.getAvailable() = " + book.getAvailable());
 
         // Book cannot be deleted if it is a currently borrowed books and not yet returned
@@ -232,7 +233,8 @@ public class BookService {
 
         // Get the associated BookInfo entity by its book.
         BookInfo bookInfo = book.getBookInfo();
-
+        log.info("book1 = " + book);
+        log.info("bookInfo1 = " + bookInfo);
         // Decrement the count of Total Books in the associated BookInfo entity
         bookInfo.decrementTotalQuantity();
 

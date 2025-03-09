@@ -62,7 +62,7 @@ function fnDisplayReportInfoList(dataList) {
         strFault += "<tr><th>Message</td><td style='color:red'>" + faultData.fault.message + "</td></tr>";
         strFault += "<tr><th>Path</td><td style='color:red'>" + faultData.fault.path + "</td></tr></table>";
 
-        resultDivList.innerHTML += strFault;
+        resultDivDtls.innerHTML += strFault;
         resultDivList.innerHTML = "";
     } else { // valid when a record(s) exists
         let str = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;ReportInfo List</h3>";
@@ -166,8 +166,9 @@ function validateSrch() {
     // Validation: Check if the value is a positive number
     if (reportInfoId && !isPositiveNumber(reportInfoId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>ReportInfo Id value can only be a positive number</td></tr>";
-        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + reportInfoId + "</font></td></tr></table></div>";
+        strFault += "<tr><th>Message</td><td>ReportInfo Id value can only be a positive integer number</td></tr>";
+        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + reportInfoId;
+        strFault += "</font></td></tr></table></div>";
         resultDivDtls.innerHTML = strFault;
         return false;
     }

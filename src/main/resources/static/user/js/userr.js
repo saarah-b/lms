@@ -100,9 +100,11 @@ function fnDisplayUserList(dataList) {
 This function creates a html row for each data record in the list
 */
 function setRow(dataItem, dataMode, counter) {
+
+    let middleName = dataItem.middleName || "-";
     strRow = "<tr><td> <input type='radio' name='entries' id='sel_" + counter + "' value='" + counter + "' ";
     strRow += "onclick='selClick(this.value," + dataMode +")' class='selectRow'/> <td>" + dataItem.userId + "<td>" + dataItem.firstName;
-    strRow += "<td>" + dataItem.middleName + "<td>" + dataItem.lastName + "<td>" + dataItem.email + "<td>" + dataItem.mobileNumber + "</td></tr>";
+    strRow += "<td>" + middleName + "<td>" + dataItem.lastName + "<td>" + dataItem.email + "<td>" + dataItem.mobileNumber + "</td></tr>";
 
     return strRow;
 }
@@ -121,10 +123,13 @@ function selClick(value, mode) {
         data = globalData[value];
     }
 
+    let middleName = data.middleName || "-";
     let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;User Details</h3>";
-    strDtl += "<table><tr><th width=30%>Id<td>" + data.userId + "<tr><th>First Name <td>" + data.firstName + "<tr><th>Middle Name <td>" + data.middleName;
-    strDtl += "<tr><th>Last Name <td>" + data.lastName + "<tr><th>Email <td>" + data.email + "<tr><th>Mobile Number <td>" + data.mobileNumber;
-    strDtl += "<tr><th>DOB <td>" + data.birth.slice(0,10) + "<tr><th>Type <td>" + data.type + "<tr><th>Last Login <td>" + data.lastLogin.slice(0,10) + "</table>";
+    strDtl += "<table><tr><th width=30%>Id<td>" + data.userId + "<tr><th>First Name <td>" + data.firstName;
+    strDtl += "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name <td>" + data.lastName;
+    strDtl += "<tr><th>Email <td>" + data.email + "<tr><th>Mobile Number <td>" + data.mobileNumber;
+    strDtl += "<tr><th>DOB <td>" + data.birth.slice(0,10) + "<tr><th>Type <td>" + userTypeDescription(data.type);
+    strDtl += " [" + data.type+ "]" + "<tr><th>Last Login <td>" + data.lastLogin.slice(0,10) + "</table>";
 
     let strAddr = "<br>&nbsp;&nbsp;&nbsp;&nbsp;&#x25A0 &nbsp;Address Details<br>";
     strAddr += "<table><tr><th>Door Number<th>Line1<th>Line2<th>City<th>Post Code";
@@ -184,5 +189,3 @@ function validateSrch() {
     }
     return true;
 }
-
-//document.getElementById('userinfo').innerText = "${userId}";

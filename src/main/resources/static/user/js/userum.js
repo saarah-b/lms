@@ -69,8 +69,9 @@ function fnDisplayUserList(dataList) {
 
     //console.log("dataList.length = " + dataList.length);
     if (dataList.length == undefined) { // when a record exists by ID
+        let middleName = dataList.middleName || "-";
         strDtl += "<table><tr><th width=25%>User Id<td id='tdUserId'>" + dataList.userId + "<tr><th>First Name <td>" + dataList.firstName;
-        strDtl += "<tr><th>Middle Name <td>" + dataList.middleName + "<tr><th>Last Name <td>" + dataList.lastName;
+        strDtl += "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name <td>" + dataList.lastName;
         strDtl += "<tr><th>DOB <td>" + dataList.birth.slice(0,10) + "<tr><th>Type <td>" + dataList.type;
         strDtl += "<tr><th>Last Login <td>" + dataList.lastLogin.slice(0,10);
 

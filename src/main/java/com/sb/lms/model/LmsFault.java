@@ -1,12 +1,16 @@
 package com.sb.lms.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * The Data / Model / Value Object to store Fault Information
  * @author Saarah Bedekar
  */
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class LmsFault {
@@ -15,14 +19,6 @@ public class LmsFault {
     private String code;
     private String message;
     private String path;
-
-    public LmsFault() {}
-    public LmsFault(String http, String code, String message, String path) {
-        this.http = http;
-        this.code = code;
-        this.message = message;
-        this.path = path;
-    }
 
     @Override
     public String toString() {

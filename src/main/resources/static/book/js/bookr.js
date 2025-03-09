@@ -174,7 +174,7 @@ function validateSrch() {
     // Validation: Check if the value is a positive number
     if ((bookId && !isPositiveNumber(bookId)) || (bookInfoId && !isPositiveNumber(bookInfoId))) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>Id values can only be a positive number</td></tr>";
+        strFault += "<tr><th>Message</td><td>Id values can only be a positive integer number</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + "</td></tr></table></div>";
         resultDivDtls.innerHTML = strFault;
         return false;
