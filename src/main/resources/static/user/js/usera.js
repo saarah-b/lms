@@ -14,6 +14,9 @@ function fnAddUser() {
     if (!validateAdd()) {
         return;
     }
+    let thisYear = document.getElementById('txtYear').value;
+    let thisMonth = document.getElementById('txtMonth').value;
+    let thisDate = document.getElementById('txtDate').value;
     // information to be submitted for saving
     let payload = {
         firstName: document.getElementById('txtFirstName').value,
@@ -21,7 +24,7 @@ function fnAddUser() {
         lastName: document.getElementById('txtLastName').value,
         email: document.getElementById('txtEmail').value,
         mobileNumber: document.getElementById('txtMobileNumber').value,
-        birth: document.getElementById('txtYear').value + "-" + document.getElementById('txtMonth').value + "-" + document.getElementById('txtDate').value,
+        birth: thisYear + "-" + thisMonth + "-" + thisDate,
         type: document.getElementById('selType').value,
         lastLogin: Date.now(),
         address: {
@@ -62,8 +65,8 @@ function fnAddUser() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for adding another user.
-It also clears any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+adding another user. It also clears any previous output text from any areas on the page
 */
 function fnAddAnotherUser() {
     document.getElementById("btnAddUser").className = "";

@@ -70,16 +70,18 @@ function fnDisplayUserList(dataList) {
     //console.log("dataList.length = " + dataList.length);
     if (dataList.length == undefined) { // when a record exists by ID
         let middleName = dataList.middleName || "-";
-        strDtl += "<table><tr><th width=25%>User Id<td id='tdUserId'>" + dataList.userId + "<tr><th>First Name <td>" + dataList.firstName;
-        strDtl += "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name <td>" + dataList.lastName;
-        strDtl += "<tr><th>DOB <td>" + dataList.birth.slice(0,10) + "<tr><th>Type <td>" + dataList.type;
-        strDtl += "<tr><th>Last Login <td>" + dataList.lastLogin.slice(0,10);
+        strDtl += "<table><tr><th width=25%>User Id<td id='tdUserId'>" + dataList.userId + "<tr><th>First Name <td>";
+        strDtl += dataList.firstName + "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name <td>";
+        strDtl += dataList.lastName + "<tr><th>DOB <td>" + dataList.birth.slice(0,10) + "<tr><th>Type <td>";
+        strDtl += dataList.type + "<tr><th>Last Login <td>" + dataList.lastLogin.slice(0,10);
 
-        strDtl += "<tr><th>Password <label style='color:red'>*</label><td><input type='password' id='txtPassword' size='20' value=''></input>";
-        strDtl += "<tr><th>Email <label style='color:red'>*</label><td><input type='text' id='txtEmail' size='30' value='" + dataList.email +"'></input>";
-        strDtl += "<tr><th>Mobile Number <label style='color:red'>*</label><td>(UK) +44 <input type='text' id='txtMobileNumber'";
+        strDtl += "<tr><th>Password <label style='color:red'>*</label><td><input type='password' id='txtPassword' ";
+        strDtl += "size='20' value=''></input><tr><th>Email <label style='color:red'>*</label><td><input type='text' ";
+        strDtl += "id='txtEmail' size='30' value='" + dataList.email +"'></input><tr><th>Mobile Number <label ";
+        strDtl += "style='color:red'>*</label><td>(UK) +44 <input type='text' id='txtMobileNumber'";
         strDtl += " maxlength='11' size='9' value='" + dataList.mobileNumber + "'></input></table>";
-        strDtl += "<br><label style='color:red;'>*</label><b> If you don't want to update a field, leave it blank or keep its default value</b><br>";
+        strDtl += "<br><label style='color:red;'>*</label><b> If you don't want to update a field, ";
+        strDtl += "leave it blank or keep its default value</b><br>";
 
         strDtl += "<br><button id='btnUpdateUser' onclick='fnUpdateUser();'>Update My Details</button><br>";
 

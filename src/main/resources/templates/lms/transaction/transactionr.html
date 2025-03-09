@@ -15,14 +15,17 @@
     <div th:if="${userType != 'M'}">
          <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Transaction Search Criteria</h3>
          <table>
-             <tr><td>Transaction Id <label style='color:red'>*</label><td><input type="text" id="txtTransactionId"></input><td>OR<td>User Id <label style='color:red'>*</label><td><input type="text" id="txtUserId"></input>
-                 <td colspan =2 style="text-align:center;">OR<td>Book Id <label style='color:red'>*</label><td><input type="text" id="txtBookId"></input>
+             <tr><td>Transaction Id <label style='color:red'>*</label><td><input type="text" id="txtTransactionId"></input>
+                 <td>OR<td>User Id <label style='color:red'>*</label><td><input type="text" id="txtUserId"></input>
+                 <td colspan =2 style="text-align:center;">OR<td>Book Id <label style='color:red'>*</label>
+                 <td><input type="text" id="txtBookId"></input>
              <tr><td colspan =5><td>State &nbsp;
                  <select id='selState'>";
                      <option value='O'>Open</option>
                      <option value='A'>All</option>
                  </select></tr>
-             <tr><td><td><button onclick = "fnSearchTransaction();">Search Transaction(s)</button> <button onclick = "fnReset();">Reset</button>
+             <tr><td><td><button onclick = "fnSearchTransaction();">Search Transaction(s)</button>
+                 <button onclick = "fnReset();">Reset</button>
          </table>
      </div>
     <div th:unless="${userType != 'M'}" style="color:red">

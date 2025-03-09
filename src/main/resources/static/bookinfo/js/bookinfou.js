@@ -97,16 +97,21 @@ function fnDisplayBookInfoList(dataList) {
         //console.log("dataList.length = " + dataList.length);
         if (dataList.length == undefined) { // when a record exists by ID
             strDtl += "<table><tr><td>BookInfo Id<td id='tdBookInfoId'>" + dataList.bookInfoId;
-            strDtl += "<tr><td>Title <label style='color:red'>*</label><td><input type='text' id='txtTitle' size='40' value='" + dataList.title +"'></input>";
-            strDtl += "<tr><td>Author <label style='color:red'>*</label><td><input type='text' id='txtAuthor' size='40' value='" + dataList.author +"'></input>";
-            strDtl += "<tr><td>Genre <label style='color:red'>*</label><td><input type='text' id='txtGenre' size='40' value='" + dataList.genre +"'></input>";
-            strDtl += "<tr><td>Category <label style='color:red'>*</label><td><input type='text' id='txtCategory' size='40' value='" + dataList.category +"'></input>";
-            strDtl += "<tr><td>ISBN <label style='color:red'>*</label><td><input type='text' id='txtIsbn' size='40' value='" + dataList.isbn + "'></input>";
-            strDtl += "<tr><td>Publisher <label style='color:red'>*</label><td><input type='text' id='txtPublisher' size='40' value='" + dataList.publisher + "'></input>";
-            strDtl += "<tr><td>Price <label style='color:red'>*</label><td><input type='text' id='txtPrice' maxlength='6' size='5' value='" + dataList.price + "'></input></table>";
+            strDtl += "<tr><td>Title <label style='color:red'>*</label><td><input type='text' id='txtTitle' size='40' ";
+            strDtl += "value='" + dataList.title +"'></input><tr><td>Author <label style='color:red'>*</label>";
+            strDtl += "<td><input type='text' id='txtAuthor' size='40' value='" + dataList.author +"'></input>";
+            strDtl += "<tr><td>Genre <label style='color:red'>*</label><td><input type='text' id='txtGenre' size='40' ";
+            strDtl += "value='" + dataList.genre +"'></input><tr><td>Category <label style='color:red'>*</label>";
+            strDtl += "<td><input type='text' id='txtCategory' size='40' value='" + dataList.category +"'></input>";
+            strDtl += "<tr><td>ISBN <label style='color:red'>*</label><td><input type='text' id='txtIsbn' size='40' ";
+            strDtl += "value='" + dataList.isbn + "'></input><tr><td>Publisher <label style='color:red'>*</label>";
+            strDtl += "<td><input type='text' id='txtPublisher' size='40' value='" + dataList.publisher + "'></input>";
+            strDtl += "<tr><td>Price <label style='color:red'>*</label><td><input type='text' id='txtPrice' ";
+            strDtl += "maxlength='6' size='5' value='" + dataList.price + "'></input></table>";
 
-            strDtl += "<br><button id='btnUpdateBookInfo' onclick='fnUpdateBookInfo();'>Update BookInfo</button> &nbsp; <button onclick='fnReset();'>Reset</button>";
-            strDtl += "&nbsp; <button id='btnUpdateAnotherBookInfo' onclick='fnUpdateAnotherBookInfo();' class='dbtn'>Update Another BookInfo</button> ";
+            strDtl += "<br><button id='btnUpdateBookInfo' onclick='fnUpdateBookInfo();'>Update BookInfo</button> ";
+            strDtl += "&nbsp; <button onclick='fnReset();'>Reset</button>&nbsp; <button id='btnUpdateAnotherBookInfo' ";
+            strDtl += "onclick='fnUpdateAnotherBookInfo();' class='dbtn'>Update Another BookInfo</button> ";
         }
         resultDiv.innerHTML = strDtl;
     }
@@ -129,8 +134,8 @@ function fnReset() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for updating another BookInfo
-by clearing any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+updating another BookInfo by clearing any previous output text from any areas on the page
 */
 function fnUpdateAnotherBookInfo() {
     document.getElementById("btnUpdateBookInfo").className = "";
@@ -202,9 +207,7 @@ function validateUpdate() {
         return false;
     }
     // Validation: Check if the value is a positive decimal
-    if (!/^\d+(\.\d+)?$/.test(price)) {
-        //^\d+: Ensures the string starts with one or more digits, (\.\d+)?: Allows an optional decimal point followed by one or more digits.
-        // $: End of the string.
+    if (!isPositiveDecimal(price)) {
         strFault += "<tr><th>Message</td><td>Price value can only be a positive decimal</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + "</td></tr></table>";
         resultDivStatus.innerHTML = strFault;

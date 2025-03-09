@@ -15,13 +15,16 @@
     <div th:if="${userType != 'M'}">
         <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Add Book</h3>
         <table>
-            <tr><td>Shelf Reference <label style='color:red'>*</label><td><input type="text" id="txtShelfReference" size="40"></input></tr>
+            <tr><td>Shelf Reference <label style='color:red'>*</label>
+                <td><input type="text" id="txtShelfReference" size="40"></input></tr>
             <tr><td>Location <label style='color:red'>*</label><td><input type="text" id="txtLocation" size="40"></input></tr>
             <tr><td>Edition <label style='color:red'>*</label><td><input type="text" id="txtEdition" size="40"></input></tr>
-            <tr><td>BookInfo Id <label style='color:red'>*</label><td><input type="text" id="txtBookInfoId" maxlength="4" size="4"></input></tr>
+            <tr><td>BookInfo Id <label style='color:red'>*</label>
+                <td><input type="text" id="txtBookInfoId" maxlength="4" size="4"></input></tr>
         </table>
-        <br><button id="btnAddBook" onclick="fnAddBook();">Add Book</button> &nbsp; <button onclick="fnReset();">Reset</button>
-        &nbsp; <button id="btnAddAnotherBook" onclick="fnAddAnotherBook();" class="dbtn">Add Another Book</button>
+        <br><button id="btnAddBook" onclick="fnAddBook();">Add Book</button> &nbsp;
+            <button onclick="fnReset();">Reset</button>
+        &nbsp;   <button id="btnAddAnotherBook" onclick="fnAddAnotherBook();" class="dbtn">Add Another Book</button>
     </div>
     <div th:unless="${userType != 'M'}" style="color:red">
         <script>document.write(accessDeniedMsg);</script>

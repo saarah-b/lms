@@ -111,8 +111,8 @@ function fnDisplayUserList(dataList) {
             strDtl += "<td>" + dataList.firstName + "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name";
             strDtl += "<td>" + dataList.lastName + "<tr><th>Email <td>" + dataList.email +"</input>";
             strDtl += "<tr><th>Mobile Number <td>" + dataList.mobileNumber + "<tr><th>DOB <td>";
-            strDtl += dataList.birth.slice(0,10) + "<tr><th>Type <td>" + userTypeDescription(dataList.type);
-            strDtl += " [" + dataList.type+ "]" + "<tr><th>Last Login <td>" + dataList.lastLogin.slice(0,10) + "</table>";
+            strDtl += dataList.birth.slice(0,10) + "<tr><th>Type <td>" + userTypeDescription(dataList.type) + " [";
+            strDtl += dataList.type+ "]" + "<tr><th>Last Login<td>" + dataList.lastLogin.slice(0,10) + "</table>";
 
             // Store the user details table to display it later for deletion confirmation
             glbDelUserTable = strDtl;

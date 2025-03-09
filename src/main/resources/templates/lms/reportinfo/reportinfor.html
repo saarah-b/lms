@@ -15,9 +15,11 @@
     <div th:if="${userType == 'A'}">
         <h3>&nbsp;&nbsp;&#x25A0 &nbsp;ReportInfo Search Criteria</h3>
         <table>
-            <tr><td>ReportInfo Id <label style='color:red'>*</label><td><input type="text" id="txtReportInfoId"></input><td colspan=6>OR
-            <td>Name <label style='color:red'>*</label><td><input type="text" id="txtReportInfoName"></input>
-            <tr><td><td><button onclick = "fnSearchReportInfo();">Search ReportInfo(s)</button> <button onclick = "fnReset();">Reset</button>
+            <tr><td>ReportInfo Id <label style='color:red'>*</label>
+                <td><input type="text" id="txtReportInfoId"></input><td colspan=6>OR
+                <td>Name <label style='color:red'>*</label><td><input type="text" id="txtReportInfoName"></input>
+            <tr><td><td><button onclick = "fnSearchReportInfo();">Search ReportInfo(s)</button>
+            <button onclick = "fnReset();">Reset</button>
         </table>
     </div>
     <div th:unless="${userType == 'A'}" style="color:red">

@@ -33,16 +33,7 @@ function fnAddReportInfo() {
         return response.json();
         })
         .then(dataList => {
-        /*if (dataList == undefined) { // If server encountered an error
-            let strFault = "<br>&nbsp;&nbsp;&#x25A0 &nbsp;Error Details";
-            strFault += "<table><tr><th>Http</td><td style='color:red'>Precondition Failed</td></tr>";
-            strFault += "<tr><th>Code</td><td style='color:red'>412</td></tr>";
-            strFault += "<tr><th>Message</td><td style='color:red'>Supplied ReportInfo object is malformed</td></tr>";
-            strFault += "<tr><th>Path</td><td style='color:red'>" + apiContext + "</td></tr></table>";
-
-            resultDivStatus.innerHTML += strFault;
-        } else*/
-	if (dataList.fault) { // If server encountered an error
+	    if (dataList.fault) { // If server encountered an error
             let strFault = "<br>&nbsp;&nbsp;&#x25A0 &nbsp;Error Details";
             strFault += "<table><tr><th width=30%>Http</td><td style='color:red'>" + dataList.fault.http + "</td></tr>";
             strFault += "<tr><th>Code</td><td style='color:red'>" + dataList.fault.code + "</td></tr>";
@@ -64,8 +55,8 @@ function fnAddReportInfo() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for adding another Report Info.
-It also clears any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+adding another Report Info. It also clears any previous output text from any areas on the page
 */
 function fnAddAnotherReportInfo() {
     document.getElementById("btnAddReportInfo").className = "";

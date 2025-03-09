@@ -15,11 +15,15 @@
     <div th:if="${userType != 'M'}">
         <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Issue Book (Add Transaction)</h3>
         <table>
-            <tr><td>User Id <label style='color:red'>*</label><td><input type="text" id="txtUserId" maxlength="4" size="4"></input>
-            <td><td>Book Id <label style='color:red'>*</label><td><input type="text" id="txtBookId" maxlength="4" size="4"></input></tr>
+            <tr><td>User Id <label style='color:red'>*</label>
+                <td><input type="text" id="txtUserId" maxlength="4" size="4"></input>
+            <td><td>Book Id <label style='color:red'>*</label>
+                <td><input type="text" id="txtBookId" maxlength="4" size="4"></input></tr>
         </table>
-        <br><button id="btnAddTransaction" onclick="fnAddTransaction();">Issue Book (Add Transaction)</button> &nbsp; <button onclick="fnReset();">Reset</button>
-        &nbsp <button id="btnAddAnotherTransaction" onclick="fnAddAnotherTransaction();" class='dbtn'>Issue Another Book (Add Another Transaction)</button>
+        <br><button id="btnAddTransaction" onclick="fnAddTransaction();">Issue Book (Add Transaction)</button> &nbsp;
+        <button onclick="fnReset();">Reset</button> &nbsp;
+        <button id="btnAddAnotherTransaction" onclick="fnAddAnotherTransaction();"
+                class='dbtn'>Issue Another Book (Add Another Transaction)</button>
     </div>
     <div th:unless="${userType != 'M'}" style="color:red">
         <script>document.write(accessDeniedMsg);</script>

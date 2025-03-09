@@ -53,8 +53,8 @@ function fnAddTransaction() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for adding another Transaction.
-It also clears any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+adding another Transaction. It also clears any previous output text from any areas on the page
 */
 function fnAddAnotherTransaction() {
     document.getElementById("btnAddTransaction").className = "";
@@ -111,4 +111,3 @@ function validateAdd() {
     }
     return true;
 }
-

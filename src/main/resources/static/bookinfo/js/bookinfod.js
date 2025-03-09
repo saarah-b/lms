@@ -104,10 +104,12 @@ function fnDisplayBookInfoList(dataList) {
         let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;Delete BookInfo</h3>";
 
         if (dataList.length == undefined) { // when a record exists by ID
-            strDtl += "<table><tr><th width=30%>BookInfo Id<td id='tdBookInfoId'>" + dataList.bookInfoId + "<tr><th>Title <td>" + dataList.title;
-            strDtl += "<tr><th>Author <td>" + dataList.author + "<tr><th>Genre <td>" + dataList.genre + "<tr><th>Category <td>" + dataList.category;
+            strDtl += "<table><tr><th width=30%>BookInfo Id<td id='tdBookInfoId'>" + dataList.bookInfoId;
+            strDtl += "<tr><th>Title <td>" + dataList.title + "<tr><th>Author <td>" + dataList.author;
+            strDtl += "<tr><th>Genre <td>" + dataList.genre + "<tr><th>Category <td>" + dataList.category;
             strDtl += "<tr><th>ISBN <td>" + dataList.isbn + "<tr><th>Publisher <td>" + dataList.publisher;
-            strDtl += "<tr><th>Price <td>" + dataList.price + "<tr><th>Total Quantity <td>" + dataList.totalQuantity + "</table>";
+            strDtl += "<tr><th>Price <td>" + dataList.price;
+            strDtl += "<tr><th>Total Quantity <td>" + dataList.totalQuantity + "</table>";
 
             // Store the user details table to display it later for deletion confirmation
             glbDelBookInfoTable = strDtl;

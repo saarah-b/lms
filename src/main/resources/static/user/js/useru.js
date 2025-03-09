@@ -123,8 +123,8 @@ function fnReset() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for updating another user
-by clearing any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+updating another user by clearing any previous output text from any areas on the page
 */
 function fnUpdateAnotherUser() {
     document.getElementById("btnUpdateUser").className = "";

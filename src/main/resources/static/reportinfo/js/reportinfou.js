@@ -93,11 +93,12 @@ function fnDisplayReportInfoList(dataList) {
             //console.log("34343434");
             strDtl += "<table><tr><td>ReportInfo Id<td id='tdReportInfoId'>" + dataList.reportInfoId;
             strDtl += "<tr><td>Name <td>" + dataList.name + "<tr><td>SQL Statement <td>" + dataList.sqlStatement;
-            strDtl += "<tr><td>Generation Time (HH:MM) <label style='color:red'>*</label>";
-            strDtl += "<td><input type='text' id='txtGenTime' size='40' value='" + dataList.timeToGenerate +"'></input></table>";
+            strDtl += "<tr><td>Generation Time (HH:MM) <label style='color:red'>*</label><td><input type='text' ";
+            strDtl += "id='txtGenTime' size='40' value='" + dataList.timeToGenerate +"'></input></table><br>";
 
-            strDtl += "<br><button id='btnUpdateReportInfo' onclick='fnUpdateReportInfo();'>Update ReportInfo</button> &nbsp; <button onclick='fnReset();'>Reset</button>";
-            strDtl += "&nbsp; <button id='btnUpdateAnotherReportInfo' onclick='fnUpdateAnotherReportInfo();' class='dbtn'>Update Another ReportInfo</button> ";
+            strDtl += "<button id='btnUpdateReportInfo' onclick='fnUpdateReportInfo();'>Update ReportInfo</button>";
+            strDtl += "&nbsp;<button onclick='fnReset();'>Reset</button>&nbsp;<button id='btnUpdateAnotherReportInfo' ";
+            strDtl += "onclick='fnUpdateAnotherReportInfo();' class='dbtn'>Update Another ReportInfo</button> ";
         }
         resultDiv.innerHTML = strDtl;
     }
@@ -119,8 +120,8 @@ function fnReset() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for updating another ReportInfo
-by clearing any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+updating another ReportInfo by clearing any previous output text from any areas on the page
 */
 function fnUpdateAnotherReportInfo() {
     document.getElementById("btnUpdateReportInfo").className = "";

@@ -121,9 +121,10 @@ function selClick(value, mode) {
     }
 
     let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;BookInfo Details</h3>";
-    strDtl += "<table><tr><th width=30%>BookInfo Id<td>" + data.bookInfoId + "<tr><th>Title <td>" + data.title + "<tr><th>Author <td>" + data.author;
-    strDtl += "<tr><th>Genre <td>" + data.genre + "<tr><th>Category <td>" + data.category + "<tr><th>ISBN <td>" + data.isbn;
-    strDtl += "<tr><th>Publisher <td>" + data.publisher + "<tr><th>Price <td>" + data.price + "<tr><th>Total Quantity <td>" + data.totalQuantity + "</table>";
+    strDtl += "<table><tr><th width=30%>BookInfo Id<td>" + data.bookInfoId + "<tr><th>Title <td>" + data.title;
+    strDtl += + "<tr><th>Author <td>" + data.author + "<tr><th>Genre <td>" + data.genre + "<tr><th>Category<td>";
+    strDtl += data.category + "<tr><th>ISBN <td>" + data.isbn + "<tr><th>Publisher <td>" + data.publisher;
+    strDtl += "<tr><th>Price <td>" + data.price + "<tr><th>Total Quantity <td>" + data.totalQuantity + "</table>";
 
     resultDivDtls.innerHTML = strDtl;
 }

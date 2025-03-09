@@ -15,10 +15,10 @@
     <div th:if="${userType != 'M'}">
         <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Search Transaction To Update</h3>
         <table>
-            <tr><td>Book Id <label style='color:red'>*</label><td><input type="text" id="txtBookId"><!--</input> <td colspan=6>OR
-            <td>User Id<td><input type="text" id="txtUserId"></input>-->
+            <tr><td>Book Id <label style='color:red'>*</label><td><input type="text" id="txtBookId">
         </table>
-        <br><button onclick = "fnSearchTransaction();">Search Open Transaction</button> <button onclick = "fnResetSrch();">Reset</button>
+        <br><button onclick = "fnSearchTransaction();">Search Open Transaction</button>
+        <button onclick = "fnResetSrch();">Reset</button>
     </div>
     <div th:unless="${userType != 'M'}" style="color:red">
         <script>document.write(accessDeniedMsg);</script>

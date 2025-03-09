@@ -119,7 +119,8 @@ function selClick(value, mode) {
     }
 
     let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;ReportInfo Details</h3>";
-    strDtl += "<table><tr><th width=30%>ReportInfo Id<td>" + data.reportInfoId + "<tr><th>Name <td>" + data.name + "<tr><th>SQL Statement <td>" + data.sqlStatement;
+    strDtl += "<table><tr><th width=30%>ReportInfo Id<td>" + data.reportInfoId + "<tr><th>Name <td>" + data.name;
+    strDtl += "<tr><th>SQL Statement <td>" + data.sqlStatement;
     strDtl += "<tr><th>Time To Generate <td>" + data.timeToGenerate + "</table>";
 
     resultDivDtls.innerHTML = strDtl;

@@ -14,9 +14,11 @@
     <div th:if="${userType == 'A'}">
         <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Add Report</h3>
         <table>
-            <tr><td>ReportInfo Id <label style='color:red'>*</label><td><input type="text" id="txtReportInfoId" size="40"></input></tr>
+            <tr><td>ReportInfo Id <label style='color:red'>*</label>
+                <td><input type="text" id="txtReportInfoId" size="40"></input></tr>
         </table>
-        <br><button id="btnAddReport" onclick="fnAddReport();">Manually Generate Report</button> &nbsp; <button onclick="fnReset();">Reset</button>
+        <br><button id="btnAddReport" onclick="fnAddReport();">Manually Generate Report</button> &nbsp;
+        <button onclick="fnReset();">Reset</button>
         &nbsp; <button id="btnAddAnotherReport" onclick="fnAddAnotherReport();" class='dbtn'>Add Another Report</button>
     </div>
     <div th:unless="${userType == 'A'}" style="color:red">

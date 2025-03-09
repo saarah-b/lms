@@ -17,9 +17,11 @@
         <table>
             <tr><td>Name <label style='color:red'>*</label><td><input type="text" id="txtName" size="40"></input></tr>
             <tr><td>SQL Statement <label style='color:red'>*</label><td><input type="text" id="txtSql" size="40"></input></tr>
-            <tr><td>Generation Time (HH:MM) <label style='color:red'>*</label><td><input type="text" id="txtGenTime" size="40"></input></tr>
+            <tr><td>Generation Time (HH:MM) <label style='color:red'>*</label>
+                <td><input type="text" id="txtGenTime" size="40"></input></tr>
         </table>
-        <br><button id="btnAddReportInfo" onclick="fnAddReportInfo();">Add ReportInfo</button> &nbsp; <button onclick="fnReset();">Reset</button> &nbsp;
+        <br><button id="btnAddReportInfo" onclick="fnAddReportInfo();">Add ReportInfo</button> &nbsp;
+        <button onclick="fnReset();">Reset</button> &nbsp;
         <button id="btnAddAnotherReportInfo" onclick="fnAddAnotherReportInfo();" class='dbtn'>Add Another ReportInfo</button>
     </div>
     <div th:unless="${userType == 'A'}" style="color:red">

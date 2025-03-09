@@ -59,8 +59,8 @@ function fnAddBookInfo() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for adding another Book Info.
-It also clears any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+adding another Book Info. It also clears any previous output text from any areas on the page
 */
 function fnAddAnotherBookInfo() {
     document.getElementById("btnAddBookInfo").className = "";
@@ -125,9 +125,7 @@ function validateAdd() {
         return false;
     }
     // Validation: Check if the value is a positive decimal
-    if (!/^\d+(\.\d+)?$/.test(price)) {
-        //^\d+: Ensures the string starts with one or more digits, (\.\d+)?: Allows an optional decimal point followed by one or more digits.
-        // $: End of the string.
+    if (!isPositiveDecimal(price)) {
         strFault += "<tr><th>Message</td><td>Price value can only be a positive decimal</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + "</td></tr></table>";
         resultDivStatus.innerHTML = strFault;

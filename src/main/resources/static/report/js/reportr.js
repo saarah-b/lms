@@ -100,8 +100,8 @@ This function creates a html row for each data record in the list
 */
 function setRow(dataItem, dataMode, counter) {
     strRow = "<tr><td> <input type='radio' name='entries' id='sel_" + counter + "' value='" + counter + "' ";
-    strRow += "onclick='selClick(this.value," + dataMode +")' class='selectRow'/> <td>" + dataItem.reportId + "<td>" + dataItem.generatedDate.slice(0,10);
-    strRow += "<td>" + dataItem.reportInfo.reportInfoId + "</td></tr>";
+    strRow += "onclick='selClick(this.value," + dataMode +")' class='selectRow'/> <td>" + dataItem.reportId + "<td>";
+    strRow += dataItem.generatedDate.slice(0,10) + "<td>" + dataItem.reportInfo.reportInfoId + "</td></tr>";
 
     return strRow;
 }
@@ -120,8 +120,10 @@ function selClick(value, mode) {
     }
 
     let strDtl = "<br>&nbsp;&nbsp;&#x25A0 &nbsp;Report Details<br>";
-    strDtl += "<table><tr><th width=30%>Report Id<td>" + data.reportId + "<tr><th>Generated Date <td>" + data.generatedDate.slice(0,10);
-    strDtl += "<tr><th>Download Link <td><a href='" + data.downloadLink + "' target='_blank'>Click Me => <img style='vertical-align: middle' src='../img/download.png' /></a><tr><th>reportInfo Id <td>" + data.reportInfo.reportInfoId + "</th></table>";
+    strDtl += "<table><tr><th width=30%>Report Id<td>" + data.reportId + "<tr><th>Generated Date <td>";
+    strDtl += data.generatedDate.slice(0,10) + "<tr><th>Download Link <td><a href='" + data.downloadLink;
+    strDtl += "' target='_blank'>Click Me => <img style='vertical-align: middle' src='../img/download.png' /></a>";
+    strDtl += "<tr><th>reportInfo Id <td>" + data.reportInfo.reportInfoId + "</th></table>";
 
     let strReportInfo = "<br>&nbsp;&nbsp;&nbsp;&nbsp;&#x25A0 &nbsp;ReportInfo Details<br>";
     strReportInfo += "<table><tr><th>ReportInfo Id<th>Name<th>SQL Statement<th>Time To Generate (HH:MM)";

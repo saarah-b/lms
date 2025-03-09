@@ -104,8 +104,9 @@ function fnDisplayReportInfoList(dataList) {
         let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;Delete ReportInfo</h3>";
 
         if (dataList.length == undefined) { // when a record exists by ID
-            strDtl += "<table><tr><th width=30%>ReportInfo Id<td id='tdReportInfoId'>" + dataList.reportInfoId + "<tr><th>Name <td>" + dataList.name;
-            strDtl += "<tr><th>SQL Statement <td>" + dataList.sqlStatement + "<tr><th>Generation Time <td>" + dataList.timeToGenerate + "</table>";
+            strDtl += "<table><tr><th width=30%>ReportInfo Id<td id='tdReportInfoId'>" + dataList.reportInfoId;
+            strDtl += "<tr><th>Name <td>" + dataList.name + "<tr><th>SQL Statement <td>" + dataList.sqlStatement;
+            strDtl += "<tr><th>Generation Time <td>" + dataList.timeToGenerate + "</table>";
 
             // Store the user details table to display it later for deletion confirmation
             glbDelReportInfoTable = strDtl;

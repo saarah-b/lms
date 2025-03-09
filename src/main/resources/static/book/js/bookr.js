@@ -100,8 +100,9 @@ This function creates a html row for each data record in the list
 */
 function setRow(dataItem, dataMode, counter) {
     strRow = "<tr><td> <input type='radio' name='entries' id='sel_" + counter + "' value='" + counter + "' ";
-    strRow += "onclick='selClick(this.value," + dataMode +")' class='selectRow'/> <td>" + dataItem.bookId + "<td>" + dataItem.shelfReference;
-    strRow += "<td>" + dataItem.location + "<td>" + dataItem.edition + "<td>" + dataItem.available + "</td></tr>";
+    strRow += "onclick='selClick(this.value," + dataMode +")' class='selectRow'/> <td>" + dataItem.bookId;
+    strRow += "<td>" + dataItem.shelfReference "<td>" + dataItem.location;
+    strRow += "<td>" + dataItem.edition + "<td>" + dataItem.available + "</td></tr>";
 
     return strRow;
 }
@@ -121,13 +122,17 @@ function selClick(value, mode) {
     }
 
     let strDtl = "<br><h3>&nbsp;&nbsp;&#x25A0 &nbsp;Book Details</h3>";
-    strDtl += "<table><tr><th width=30%>Book Id<td>" + data.bookId + "<tr><th>Shelf Reference <td>" + data.shelfReference + "<tr><th>Location <td>" + data.location;
-    strDtl += "<tr><th>Edition <td>" + data.edition + "<tr><th>Available <td>" + data.available + "<tr><th>BookInfo Id <td>" + data.bookInfo.bookInfoId + "</table>";
+    strDtl += "<table><tr><th width=30%>Book Id<td>" + data.bookId + "<tr><th>Shelf Reference <td>";
+    strDtl += data.shelfReference + "<tr><th>Location <td>" + data.location + "<tr><th>Edition <td>" + data.edition;
+    strDtl += "<tr><th>Available<td>" + data.available + "<tr><th>BookInfo Id<td>" + data.bookInfo.bookInfoId + "</table>";
 
     let strBookInfo = "<br>&nbsp;&nbsp;&nbsp;&nbsp;&#x25A0 &nbsp;BookInfo Details<br>";
-    strBookInfo += "<table><tr><th>BookInfo Id<th>Title<th>Author<th>Genre<th>Category<th>Isbn<th>Publisher<th>Price<th>Copies #";
-    strBookInfo += "<tr><td>" + data.bookInfo.bookInfoId + "<td>" + data.bookInfo.title + "<td>" + data.bookInfo.author + "<td>" + data.bookInfo.genre + "<td>" + data.bookInfo.category;
-    strBookInfo += "<td>" + data.bookInfo.isbn + "<td>" + data.bookInfo.publisher + "<td>" + data.bookInfo.price + "<td>" + data.bookInfo.totalQuantity + "</table>";
+    strBookInfo += "<table><tr><th>BookInfo Id<th>Title<th>Author<th>Genre<th>Category";
+    strBookInfo += "<th>Isbn<th>Publisher<th>Price<th>Copies #";
+    strBookInfo += "<tr><td>" + data.bookInfo.bookInfoId + "<td>" + data.bookInfo.title + "<td>" + data.bookInfo.author;
+    strBookInfo += "<td>" + data.bookInfo.genre + "<td>" + data.bookInfo.category + "<td>" + data.bookInfo.isbn;
+    strBookInfo += "<td>" + data.bookInfo.publisher + "<td>" + data.bookInfo.price;
+    strBookInfo += "<td>" + data.bookInfo.totalQuantity + "</table>";
 
     resultDivDtls.innerHTML = strDtl + strBookInfo;
 }

@@ -138,30 +138,38 @@ function selClick(value, mode) {
     let actualDate = (data.returned) ? data.actualReturnDate.slice(0,10) : "";
     let fineDesc = (data.returned) ? "Fine paid (&#163;)" : "Fine (&#163;) (as of today)";
     let strDtl = "<h3>&nbsp;&nbsp;&#x25A0 &nbsp;Transaction Details</h3>";
-    strDtl += "<table><tr><th width=30%>Transaction Id<td>" + data.transactionId + "<tr><th>User Id <td>" + data.user.userId + "<tr><th>Book Id <td>" + data.book.bookId;
-    strDtl += "<tr><th>Issue Date <td>" + data.issueDate.slice(0,10) + "<tr><th>Return Date <td>" + data.returnDate.slice(0,10);
+    strDtl += "<table><tr><th width=30%>Transaction Id<td>" + data.transactionId + "<tr><th>User Id <td>";
+    strDtl += data.user.userId + "<tr><th>Book Id <td>" + data.book.bookId + "<tr><th>Issue Date <td>";
+    strDtl += data.issueDate.slice(0,10) + "<tr><th>Return Date <td>" + data.returnDate.slice(0,10);
     strDtl += "<tr><th>Actual Returned Date <td>" + actualDate + "<tr><th>" + fineDesc + "<td>" + data.fine;
     strDtl += "<tr><th>Returned<td>" + data.returned + "</table>";
 
     let strUser = "<h3>&nbsp;&nbsp;&#x25A0 &nbsp;User Details</h3>";
     let middleName = data.user.middleName || "-";
-    strUser += "<table><tr><th width=30%>Id<td>" + data.user.userId + "<tr><th>First Name <td>" + data.user.firstName + "<tr><th>Middle Name <td>" + middleName;
-    strUser += "<tr><th>Last Name <td>" + data.user.lastName + "<tr><th>Email <td>" + data.user.email + "<tr><th>Mobile Number <td>" + data.user.mobileNumber;
-    strUser += "<tr><th>DOB <td>" + data.user.birth.slice(0,10) + "<tr><th>Type <td>" + data.user.type + "<tr><th>Last Login <td>" + data.user.lastLogin.slice(0,10) + "</table>";
+    strUser += "<table><tr><th width=30%>Id<td>" + data.user.userId + "<tr><th>First Name <td>" + data.user.firstName;
+    strUser += "<tr><th>Middle Name <td>" + middleName + "<tr><th>Last Name <td>" + data.user.lastName;
+    strUser += "<tr><th>Email <td>" + data.user.email + "<tr><th>Mobile Number <td>" + data.user.mobileNumber;
+    strUser += "<tr><th>DOB <td>" + data.user.birth.slice(0,10) + "<tr><th>Type <td>" + data.user.type;
+    strUser += "<tr><th>Last Login <td>" + data.user.lastLogin.slice(0,10) + "</table>";
 
     let strAddr = "<h3>&nbsp;&nbsp;&nbsp;&nbsp;&#x25A0 &nbsp;User Address Details</h3>";
     strAddr += "<table><tr><th>Door Number<th>Line1<th>Line2<th>City<th>Post Code";
-    strAddr += "<tr><td>" + data.user.address.doorNumber + "<td>" + data.user.address.line1 + "<td>" + data.user.address.line2;
-    strAddr += "<td>" + data.user.address.city + "<td>" + data.user.address.postcode + "</table>";
+    strAddr += "<tr><td>" + data.user.address.doorNumber + "<td>" + data.user.address.line1 + "<td>";
+    strAddr += data.user.address.line2 + "<td>" + data.user.address.city + "<td>" + data.user.address.postcode + "</table>";
 
     let strBook = "<h3>&nbsp;&nbsp;&#x25A0 &nbsp;Book Details</h3>";
-    strBook += "<table><tr><th width=30%>Book Id<td>" + data.book.bookId + "<tr><th>Shelf Reference <td>" + data.book.shelfReference + "<tr><th>Location <td>" + data.book.location;
-    strBook += "<tr><th>Edition <td>" + data.book.edition + "<tr><th>Available <td>" + data.book.available + "<tr><th>BookInfo Id <td>" + data.book.bookInfo.bookInfoId + "</table>";
+    strBook += "<table><tr><th width=30%>Book Id<td>" + data.book.bookId + "<tr><th>Shelf Reference <td>";
+    strBook += data.book.shelfReference + "<tr><th>Location <td>" + data.book.location;
+    strBook += "<tr><th>Edition <td>" + data.book.edition + "<tr><th>Available <td>" + data.book.available;
+    strBook += "<tr><th>BookInfo Id <td>" + data.book.bookInfo.bookInfoId + "</table>";
 
     let strBookInfo = "<h3>&nbsp;&nbsp;&nbsp;&nbsp;&#x25A0 &nbsp;BookInfo Details</h3>";
-    strBookInfo += "<table><tr><th>BookInfo Id<th>Title<th>Author<th>Genre<th>Category<th>Isbn<th>Publisher<th>Price<th>totalQuantity";
-    strBookInfo += "<tr><td>" + data.book.bookInfo.bookInfoId + "<td>" + data.book.bookInfo.title + "<td>" + data.book.bookInfo.author + "<td>" + data.book.bookInfo.genre + "<td>" + data.book.bookInfo.category;
-    strBookInfo += "<td>" + data.book.bookInfo.isbn + "<td>" + data.book.bookInfo.publisher + "<td>" + data.book.bookInfo.price + "<td>" + data.book.bookInfo.totalQuantity + "</table>";
+    strBookInfo += "<table><tr><th>BookInfo Id<th>Title<th>Author<th>Genre<th>Category<th>Isbn<th>Publisher<th>Price";
+    strBookInfo += "<th>totalQuantity <tr><td>" + data.book.bookInfo.bookInfoId + "<td>" + data.book.bookInfo.title;
+    strBookInfo += "<td>" + data.book.bookInfo.author + "<td>" + data.book.bookInfo.genre + "<td>";
+    strBookInfo += data.book.bookInfo.category + "<td>" + data.book.bookInfo.isbn;
+    strBookInfo += "<td>" + data.book.bookInfo.publisher + "<td>" + data.book.bookInfo.price;
+    strBookInfo += "<td>" + data.book.bookInfo.totalQuantity + "</table>";
 
     resultDivDtls.innerHTML = strDtl + strUser + strAddr + strBook + strBookInfo;
 }
@@ -207,7 +215,8 @@ function validateSrch() {
         resultDivDtls.innerHTML = strFault;
         return false;
     }
-    if ((transactionId && !isPositiveNumber(transactionId)) || (userId && !isPositiveNumber(userId)) || (bookId && !isPositiveNumber(bookId))) {
+    if ((transactionId && !isPositiveNumber(transactionId)) || (userId && !isPositiveNumber(userId))
+            || (bookId && !isPositiveNumber(bookId))) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
         strFault += "<tr><th>Message</td><td>Id values can only be a positive number</td></tr>";
         strFault += "<tr><th>Path</td><td>" + apiContext + "</td></tr></table></div>";

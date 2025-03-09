@@ -92,12 +92,16 @@ function fnDisplayBookList(dataList) {
 
         if (dataList.length == undefined) { // when a record exists by ID
             strDtl += "<table><tr><th>Book Id <td id='tdBookId'>" + dataList.bookId;
-            strDtl += "<tr><th>Shelf Reference <label style='color:red'>*</label><td><input type='text' id='txtShelfReference' size='40' value='" + dataList.shelfReference +"'></input>";
-            strDtl += "<tr><th>Location <label style='color:red'>*</label><td><input type='text' id='txtLocation' size='40' value='" + dataList.location +"'></input>";
-            strDtl += "<tr><th>Edition <label style='color:red'>*</label><td><input type='text' id='txtEdition' size='40' value='" + dataList.edition +"'></input>";
+            strDtl += "<tr><th>Shelf Reference <label style='color:red'>*</label><td><input type='text' ";
+            strDtl += "id='txtShelfReference' size='40' value='" + dataList.shelfReference +"'></input>";
+            strDtl += "<tr><th>Location <label style='color:red'>*</label><td><input type='text' id='txtLocation' ";
+            strDtl += "size='40' value='" + dataList.location +"'></input>";
+            strDtl += "<tr><th>Edition <label style='color:red'>*</label><td><input type='text' id='txtEdition' ";
+            strDtl += "size='40' value='" + dataList.edition +"'></input>";
             strDtl += "<tr><th>BookInfo Id <td id='tdBookInfoId'>" + dataList.bookInfo.bookInfoId + "</table>";
-            strDtl += "<br><button id='btnUpdateBook' onclick='fnUpdateBook();'>Update Book</button> &nbsp; <button onclick='fnReset();'>Reset</button>	&nbsp;";
-            strDtl += "<button id='btnUpdateAnotherBook' onclick='fnUpdateAnotherBook();' class='dbtn'>Update Another Book</button> ";
+            strDtl += "<br><button id='btnUpdateBook' onclick='fnUpdateBook();'>Update Book</button> &nbsp; ";
+            strDtl += "<button onclick='fnReset();'>Reset</button>	&nbsp; <button id='btnUpdateAnotherBook' ";
+            strDtl += "onclick='fnUpdateAnotherBook();' class='dbtn'>Update Another Book</button> ";
         }
         resultDiv.innerHTML = strDtl;
     }
@@ -120,8 +124,8 @@ function fnReset() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for updating another Book
-by clearing any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+updating another Book by clearing any previous output text from any areas on the page
 */
 function fnUpdateAnotherBook() {
     document.getElementById("btnUpdateBook").className = "";

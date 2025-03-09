@@ -22,6 +22,26 @@ function isPositiveNumber(value) {
 }
 
 /**
+ * Handles decimal check via regular expression.
+ * @param value the parameter value
+ * @return boolean flag indicating pass or fail check
+
+ Regular expressions used for checks in this js file
+ --------------------------
+ Part	    Meaning
+ --------------------------
+ ^	        Start of the string
+ \d*	    Zero or more digits (0-9) before the decimal point (optional)
+ \d+	    At least one digit after the decimal (ensures valid decimal numbers)
+ $	        End of the string
+ */
+function isPositiveDecimal(value) {
+    //
+    const pattern = /^\d+(\.\d+)?$/;
+    return pattern.test(value) && parseDouble(value) > 0.0;
+}
+
+/**
  * Handles valid email format check via regular expression.
  * @param value the email parameter value
  * @return boolean flag indicating pass or fail check

@@ -56,8 +56,8 @@ function fnAddBook() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for adding another Book.
-It also clears any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+adding another Book. It also clears any previous output text from any areas on the page
 */
 function fnAddAnotherBook() {
     document.getElementById("btnAddBook").className = "";

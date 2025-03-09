@@ -22,8 +22,9 @@
             <tr><td>ISBN <label style='color:red'>*</label><td><input type="text" id="txtIsbn" size="40"></input></tr>
             <tr><td>Publisher <label style='color:red'>*</label><td><input type="text" id="txtPublisher" size="40"></input>
             <tr><td>Price <label style='color:red'>*</label><td><input type="text" id="txtPrice" maxlength="6" size="5"></input></tr>
-        </table>
-        <br><button id="btnAddBookInfo" onclick="fnAddBookInfo();">Add Book Info</button> &nbsp; <button onclick="fnReset();">Reset</button>
+        </table><br>
+        <button id="btnAddBookInfo" onclick="fnAddBookInfo();">Add Book Info</button> &nbsp;
+        <button onclick="fnReset();">Reset</button>
         <button id="btnAddAnotherBookInfo" onclick="fnAddAnotherBookInfo();" class="dbtn">Add Another BookInfo</button>
     </div>
     <div th:unless="${userType != 'M'}" style="color:red">

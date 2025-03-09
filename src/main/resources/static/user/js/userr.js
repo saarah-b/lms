@@ -103,8 +103,9 @@ function setRow(dataItem, dataMode, counter) {
 
     let middleName = dataItem.middleName || "-";
     strRow = "<tr><td> <input type='radio' name='entries' id='sel_" + counter + "' value='" + counter + "' ";
-    strRow += "onclick='selClick(this.value," + dataMode +")' class='selectRow'/> <td>" + dataItem.userId + "<td>" + dataItem.firstName;
-    strRow += "<td>" + middleName + "<td>" + dataItem.lastName + "<td>" + dataItem.email + "<td>" + dataItem.mobileNumber + "</td></tr>";
+    strRow += "onclick='selClick(this.value," + dataMode +")' class='selectRow'/> <td>" + dataItem.userId + "<td>";
+    strRow += dataItem.firstName + "<td>" + middleName + "<td>" + dataItem.lastName;
+    strRow += "<td>" + dataItem.email + "<td>" + dataItem.mobileNumber + "</td></tr>";
 
     return strRow;
 }
@@ -182,8 +183,8 @@ function validateSrch() {
     // Validation: Check if the value is an integer
     if (userId && !isPositiveNumber(userId)) {
         //^: Start of the string, -?: Optional negative sign, \d+: One or more digits, $: End of the string.
-        strFault += "<tr><th>Message</td><td>User Id value can only be a positive number</td></tr>";
-        strFault += "<tr><th>Path</td><td>" + apiContext + "<font color=black>" + userId + "</font></td></tr></table></div>";
+        strFault += "<tr><th>Message<td>User Id value can only be a positive number</tr><tr><th>Path";
+        strFault += "<td>" + apiContext + "<font color=black>" + userId + "</font></td></tr></table></div>";
         resultDivDtls.innerHTML = strFault;
         return false;
     }

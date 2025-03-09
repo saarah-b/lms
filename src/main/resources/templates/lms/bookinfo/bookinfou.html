@@ -17,7 +17,8 @@
         <table>
             <tr><td>BookInfo Id <label style='color:red'>*</label><td><input type="text" id="txtBookInfoId"></input>
         </table>
-        <br><button onclick = "fnSearchBookInfo();">Search BookInfo</button> <button onclick = "fnResetSrch();">Reset</button>
+        <br><button onclick = "fnSearchBookInfo();">Search BookInfo</button>
+        <button onclick = "fnResetSrch();">Reset</button>
     </div>
     <div th:unless="${userType != 'M'}" style="color:red">
         <script>document.write(accessDeniedMsg);</script>

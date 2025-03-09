@@ -10,10 +10,13 @@ function fnUpdateTransaction() {
     let apiUrl = server + apiContext + "book/" + document.getElementById('tdBookId').innerText;
     //console.log("apiUrl = " + apiUrl);
 
-    // validate the information given on the UI
+    // There is nothing to validate because there is no user information but auto calculated values
+    /*
     if (!validateUpdate()) {
         return;
     }
+    */
+
     // information to be submitted for saving
     let payload = {
         bookId: document.getElementById('txtBookId').value
@@ -94,9 +97,10 @@ function fnDisplayTransaction(dataList) {
             strDtl += "<tr><th>Return Date <td id='tdReturnDate'>" + dataList.returnDate.slice(0,10);
             strDtl += "<tr><th>Actual Return Date <td id='tdActualReturnDate'>To be Assigned";
             strDtl += "<tr><th>Fine (&#163;)<td id='tdFine'>" + dataList.fine + " (if returned today)";
-            strDtl += "<tr><th>Returned? <td id='tdReturned'>" + dataList.returned + "</table>";
-            strDtl += "<br><button id='btnUpdateTransaction' onclick='fnUpdateTransaction();'>Return Book</button> &nbsp; <button onclick='fnReset();'>Reset</button>	&nbsp;";
-            strDtl += "<button id='btnUpdateAnotherTransaction' onclick='fnUpdateAnotherTransaction();' class='dbtn'>Return Another Book</button> ";
+            strDtl += "<tr><th>Returned? <td id='tdReturned'>" + dataList.returned + "</table><br>";
+            strDtl += "<button id='btnUpdateTransaction' onclick='fnUpdateTransaction();'>Return Book</button> &nbsp; ";
+            strDtl += "<button onclick='fnReset();'>Reset</button>	&nbsp; <button id='btnUpdateAnotherTransaction' ";
+            strDtl += "onclick='fnUpdateAnotherTransaction();' class='dbtn'>Return Another Book</button> ";
         }
         resultDiv.innerHTML = strDtl;
     }
@@ -119,8 +123,8 @@ function fnReset() {
 }
 
 /*
-This function prepares the form again enabling all required fields for the user to provide the information for updating another Transaction
-by clearing any previous output text from any areas on the page
+This function prepares the form again enabling all required fields for the user to provide the information for
+updating another Transaction by clearing any previous output text from any areas on the page
 */
 function fnUpdateAnotherTransaction() {
     document.getElementById("btnUpdateTransaction").className = "";
@@ -162,12 +166,5 @@ function validateSrch() {
         resultDivStatus.innerHTML = strFault;
         return false;
     }
-    return true;
-}
-
-function validateUpdate() {
-/*
-
-    */
     return true;
 }

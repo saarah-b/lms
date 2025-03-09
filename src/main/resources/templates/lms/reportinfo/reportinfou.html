@@ -16,8 +16,9 @@
         <h3>&nbsp;&nbsp;&#x25A0 &nbsp;Search ReportInfo To Update</h3>
         <table>
             <tr><td>ReportInfo Id <label style='color:red'>*</label><td><input type="text" id="txtReportInfoId"></input>
-        </table>
-        <br><button onclick = "fnSearchReportInfo();">Search ReportInfo</button> <button onclick = "fnResetSrch();">Reset</button>
+        </table><br>
+        <button onclick = "fnSearchReportInfo();">Search ReportInfo</button>
+        <button onclick = "fnResetSrch();">Reset</button>
     </div>
     <div th:unless="${userType == 'A'}" style="color:red">
         <script>document.write(accessDeniedMsg);</script>
