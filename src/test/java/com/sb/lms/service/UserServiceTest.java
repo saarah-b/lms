@@ -59,11 +59,13 @@ public class UserServiceTest {
     @DisplayName("Test 1:Verify User By Id Retrieval Check")
     @Order(1)
     public void srvTestGetUserById() {
-
+        // arrange
         when(userRepository.findById(user.getUserId())).thenReturn(Optional.of(user));
 
+        // action
         User userDB = userService.getUserById(user.getUserId());
 
+        // Verify and assert
         Assertions.assertThat(userDB).isNotNull();
         Assertions.assertThat(userDB).isInstanceOf(User.class);
         Assertions.assertThat(userDB).isNotInstanceOf(Book.class);

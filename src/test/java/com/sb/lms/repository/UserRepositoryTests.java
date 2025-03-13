@@ -40,11 +40,13 @@ public class UserRepositoryTests {
     @DisplayName("Test 1:Verify User By Id Retrieval Check")
     @Order(1)
     public void repTestGetUserById() {
-
+        // arrange
         when(userRepository.findById(user.getUserId())).thenReturn(Optional.of(user));
 
+        // action
         User userDB = userRepository.findById(user.getUserId()).orElse(null);
 
+        // Verify and assert
         Assertions.assertThat(userDB).isNotNull();
         Assertions.assertThat(userDB).isInstanceOf(User.class);
         Assertions.assertThat(userDB).isNotInstanceOf(Book.class);

@@ -11,17 +11,18 @@
 <body style="background-image: url('../img/librarybg.png'); background-repeat: no-repeat;">
     <SCRIPT src="../js/header1.js"></SCRIPT>
     <h2>Login</h2>
-    <form action="/login" method="post" onsubmit="return validateLogin();">
+    <form action="/login" method="post" onsubmit="return validateLogin(event);">
         <label for="userid">UserId:</label>
         <input type="text" id="userid" name="userid" th:value="${userId}" required />
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required />
         <button type="submit">Login</button>
-        <br>
+        <br><br>
         <div th:if="!${#strings.isEmpty(error)}">
-            <img style="vertical-align: middle" src="../img/errorIcon.png" />
+            <!-- <img style="vertical-align: middle" src="../img/errorIcon.png" /> -->
             <span id="hdnLoginError" style='color:red' th:text="${error}"></span>
         </div>
+        <div id="divError" style='color:red'></div>
     </form>
 </body>
 </html>

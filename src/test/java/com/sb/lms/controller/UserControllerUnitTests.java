@@ -52,6 +52,8 @@ public class UserControllerUnitTests {
 
         // action
         ResultActions response = mockMvc.perform(get("/lms/v1/users/{userId}", 1));
+
+        // Verify and assert
         response.andExpect(status().isOk()) // Expect HTTP 200
                 .andDo(print())
                 .andExpect(jsonPath("$.userId").value(1))

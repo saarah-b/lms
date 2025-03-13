@@ -22,6 +22,7 @@ import java.util.Optional;
 public class UserService {
 
     private static final String USER_ADDRESS_NOT_FOUND = "Invalid Address reference provided to User";
+    private static final String DEFAULT_PASSWORD = "Qwerty";
 
     @Autowired
     private UserRepository userRepository; // Injects the UserRepository dependency.
@@ -138,6 +139,9 @@ public class UserService {
         }
         //log.info("Address (door#) = " + addressDB.getDoorNumber());
         user.setAddress(addressDB);
+
+        // System assigns this default password
+        user.setPassword(DEFAULT_PASSWORD);
 
         log.info("Returning UserService::addUser userId = " + user.getUserId());
         //insert into user (address_id,birth,email,first_name,last_login,last_name,

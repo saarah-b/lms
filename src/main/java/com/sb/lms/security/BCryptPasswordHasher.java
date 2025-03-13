@@ -10,7 +10,7 @@ public class BCryptPasswordHasher {
     private static final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     /**
-     * Handles the hashing os a provided password
+     * Handles the hashing of a provided password
      * @param password the password for which the hash encoding has to be done for
      * @return a String of the hashedPassword
      */
