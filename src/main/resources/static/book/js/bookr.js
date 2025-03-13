@@ -101,7 +101,7 @@ This function creates a html row for each data record in the list
 function setRow(dataItem, dataMode, counter) {
     strRow = "<tr><td> <input type='radio' name='entries' id='sel_" + counter + "' value='" + counter + "' ";
     strRow += "onclick='selClick(this.value," + dataMode +")' class='selectRow'/> <td>" + dataItem.bookId;
-    strRow += "<td>" + dataItem.shelfReference "<td>" + dataItem.location;
+    strRow += "<td>" + dataItem.shelfReference + "<td>" + dataItem.location;
     strRow += "<td>" + dataItem.edition + "<td>" + dataItem.available + "</td></tr>";
 
     return strRow;
