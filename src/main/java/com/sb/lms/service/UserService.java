@@ -51,7 +51,7 @@ public class UserService {
 
             // Hash the raw password
             String hashedPassword = BCryptPasswordHasher.hashPassword(rawPassword);
-            //log.info("BCrypt Hashed Password: " + hashedPassword);
+            //log.info("BCrypt Hashed Password for transmission over network : " + hashedPassword);
 
             // Verify password match
             boolean isMatch = BCryptPasswordHasher.verifyPassword(userDB.getPassword(), hashedPassword);
@@ -143,7 +143,7 @@ public class UserService {
         // System assigns this default password
         user.setPassword(DEFAULT_PASSWORD);
 
-        log.info("Returning UserService::addUser userId = " + user.getUserId());
+        log.info("Returning UserService::addUser user name = " + user.getFirstName());
         //insert into user (address_id,birth,email,first_name,last_login,last_name,
         //     *             middle_name,mobile_number,password,type) values (?,?,?,?,?,?,?,?,?,?)
         return userRepository.save(user);

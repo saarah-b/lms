@@ -38,7 +38,7 @@ function isPositiveNumber(value) {
 function isPositiveDecimal(value) {
     //
     const pattern = /^\d+(\.\d+)?$/;
-    return pattern.test(value) && parseDouble(value) > 0.0;
+    return pattern.test(value) && parseFloat(value) > 0.0;
 }
 
 /**
